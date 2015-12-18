@@ -7,8 +7,12 @@
 var express = require('express');
 var app = express();
 
+//set express parameters to render jade template
+app.set('views', './views');
+app.set('view engine', 'jade');
+
 app.get('/', function (req, res) {
-    res.send('Hello World');
+    res.render('index');
 });
 
 app.listen(3000);
