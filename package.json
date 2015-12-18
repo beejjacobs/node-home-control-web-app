@@ -1,0 +1,10 @@
+{
+  "name": "node-home-control-web-app",
+  "version": "0.0.1",
+  "scripts": {
+    "run": "node app.js"
+  },
+  "dependencies": {
+    "express": "4.13.3"
+  }
+}
