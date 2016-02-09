@@ -4,8 +4,11 @@
  * @author Ben Jacobs
  */
 
+var control = require('./lib/control');
 var express = require('express');
 var app = express();
+var http = require('http').Server(app);
+var io = require('socket.io')(http);
 
 //set express parameters to render jade template
 app.set('views', './views');
@@ -16,4 +19,8 @@ app.get('/', function (req, res) {
     res.render('index');
 });
 
-app.listen(3000);
+http.listen(3000, function(){
+    console.log('Server listening on port 3000');
+});
+
+new control(io);

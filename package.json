@@ -6,6 +6,8 @@
   },
   "dependencies": {
     "express": "4.13.3",
-    "jade": "1.11.0"
+    "jade": "1.11.0",
+    "node-hue-api": "2.1.1",
+    "socket.io": "1.4.5"
   }
 }
