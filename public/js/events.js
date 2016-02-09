@@ -14,7 +14,7 @@ function onFloorPlanLoad(svgObject) {
   floorPlan.rooms = floorPlan.svg.querySelectorAll("[id^='room']");
   for(let i = 0; i < floorPlan.rooms.length; i++) {
     floorPlan.rooms[i].addEventListener('click', function() {
-      roomClick(floorPlan.rooms[i], i);
+      roomClick(floorPlan.rooms[i]);
     });
   }
 }
@@ -26,10 +26,11 @@ function onDOMLoad() {
   });
 }
 
-function roomClick(room, i) {
-  console.log('room: ' + (i+1));
+function roomClick(room) {
+  var roomName = room.id.slice(5);
+  console.log('room: ' + roomName);
   room.style.fill = 'blue';
-  socket.emit('room', i+1);
+  socket.emit('room', roomName);
 }
 
 document.addEventListener('DOMContentLoaded', onDOMLoad);
