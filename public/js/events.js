@@ -16,6 +16,9 @@ function onFloorPlanLoad(svgObject) {
     floorPlan.rooms[i].addEventListener('click', function() {
       roomClick(floorPlan.rooms[i]);
     });
+    floorPlan.rooms[i].addEventListener('dblclick', function() {
+      roomDoubleClick(floorPlan.rooms[i]);
+    });
   }
 }
 
@@ -27,6 +30,12 @@ function onDOMLoad() {
 }
 
 function roomClick(room) {
+  var roomName = room.id.slice(5);
+  console.log('room: ' + roomName);
+  room.style.fill = 'yellow';
+}
+
+function roomDoubleClick(room) {
   var roomName = room.id.slice(5);
   console.log('room: ' + roomName);
   room.style.fill = 'blue';
