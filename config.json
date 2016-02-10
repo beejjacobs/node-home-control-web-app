@@ -1,5 +1,6 @@
 {
   "houseName": "My House",
+  "hueBridgeIP": "192.168.0.111",
   "floors": [
     {"id": 0, "name": "Ground Floor"},
     {"id": 1, "name": "First Floor"}
