@@ -12,31 +12,36 @@
       "floor": 0,
       "lights": [
         {
-          "id": 0,
+          "id": "main",
+          "hueID": 0,
           "type": "main",
           "colour": "rgb",
           "name": "Main Light"
         },
         {
-          "id": 1,
+          "id": "corner",
+          "hueID": 1,
           "type": "lamp",
           "colour": "rgb",
           "name": "Corner Light"
         },
         {
-          "id": 2,
+          "id": "uplight-1",
+          "hueID": 2,
           "type": "uplight",
           "colour": "rgb",
           "name": "Up Light 1"
         },
         {
-          "id": 3,
+          "id": "uplight-2",
+          "hueID": 3,
           "type": "uplight",
           "colour": "rgb",
           "name": "Up Light 2"
         },
         {
-          "id": 4,
+          "id": "uplight-3",
+          "hueID": 4,
           "type": "uplight",
           "colour": "rgb",
           "name": "Up Light 3"
@@ -49,7 +54,8 @@
       "floor": 0,
       "lights": [
         {
-          "id": 5,
+          "id": "main",
+          "hueID": 5,
           "type": "main",
           "colour": "white",
           "name": "Main Light"
@@ -62,7 +68,8 @@
       "floor": 0,
       "lights": [
         {
-          "id": 6,
+          "id": "main",
+          "hueID": 6,
           "type": "main",
           "colour": "white",
           "name": "Main Light"
@@ -75,13 +82,15 @@
       "floor": 0,
       "lights": [
         {
-          "id": 7,
+          "id": "main",
+          "hueID": 7,
           "type": "main",
           "colour": "white",
           "name": "Main Light"
         },
         {
-          "id": 8,
+          "id": "main",
+          "hueID": 8,
           "type": "strip",
           "colour": "rgb",
           "name": "Worktop Light"
@@ -94,7 +103,8 @@
       "floor": 0,
       "lights": [
         {
-          "id": 9,
+          "id": "main",
+          "hueID": 9,
           "type": "main",
           "colour": "white",
           "name": "Main Light"
@@ -107,7 +117,8 @@
       "floor": 0,
       "lights": [
         {
-          "id": 10,
+          "id": "main",
+          "hueID": 10,
           "type": "main",
           "colour": "white",
           "name": "Main Light"
@@ -120,7 +131,8 @@
       "floor": 1,
       "lights": [
         {
-          "id": 11,
+          "id": "main",
+          "hueID": 11,
           "type": "main",
           "colour": "white",
           "name": "Main Light"
@@ -133,7 +145,8 @@
       "floor": 1,
       "lights": [
         {
-          "id": 12,
+          "id": "main",
+          "hueID": 12,
           "type": "main",
           "colour": "white",
           "name": "Main Light"
@@ -146,7 +159,8 @@
       "floor": 1,
       "lights": [
         {
-          "id": 13,
+          "id": "main",
+          "hueID": 13,
           "type": "main",
           "colour": "white",
           "name": "Main Light"
@@ -159,7 +173,8 @@
       "floor": 1,
       "lights": [
         {
-          "id": 14,
+          "id": "main",
+          "hueID": 14,
           "type": "main",
           "colour": "white",
           "name": "Main Light"
@@ -172,7 +187,8 @@
       "floor": 1,
       "lights": [
         {
-          "id": 15,
+          "id": "main",
+          "hueID": 15,
           "type": "main",
           "colour": "white",
           "name": "Main Light"
