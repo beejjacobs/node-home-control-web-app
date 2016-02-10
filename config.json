@@ -1,0 +1,182 @@
+{
+  "houseName": "My House",
+  "floors": [
+    {"id": 0, "name": "Ground Floor"},
+    {"id": 1, "name": "First Floor"}
+  ],
+  "rooms": [
+    {
+      "id": "lounge",
+      "name": "Lounge",
+      "floor": 0,
+      "lights": [
+        {
+          "id": 0,
+          "type": "main",
+          "colour": "rgb",
+          "name": "Main Light"
+        },
+        {
+          "id": 1,
+          "type": "lamp",
+          "colour": "rgb",
+          "name": "Corner Light"
+        },
+        {
+          "id": 2,
+          "type": "uplight",
+          "colour": "rgb",
+          "name": "Up Light 1"
+        },
+        {
+          "id": 3,
+          "type": "uplight",
+          "colour": "rgb",
+          "name": "Up Light 2"
+        },
+        {
+          "id": 4,
+          "type": "uplight",
+          "colour": "rgb",
+          "name": "Up Light 3"
+        }
+      ]
+    },
+    {
+      "id": "dining",
+      "name": "Dining Room",
+      "floor": 0,
+      "lights": [
+        {
+          "id": 5,
+          "type": "main",
+          "colour": "white",
+          "name": "Main Light"
+        }
+      ]
+    },
+    {
+      "id": "hallway",
+      "name": "Hallway",
+      "floor": 0,
+      "lights": [
+        {
+          "id": 6,
+          "type": "main",
+          "colour": "white",
+          "name": "Main Light"
+        }
+      ]
+    },
+    {
+      "id": "kitchen",
+      "name": "Kitchen",
+      "floor": 0,
+      "lights": [
+        {
+          "id": 7,
+          "type": "main",
+          "colour": "white",
+          "name": "Main Light"
+        },
+        {
+          "id": 8,
+          "type": "strip",
+          "colour": "rgb",
+          "name": "Worktop Light"
+        }
+      ]
+    },
+    {
+      "id": "utility",
+      "name": "Utility",
+      "floor": 0,
+      "lights": [
+        {
+          "id": 9,
+          "type": "main",
+          "colour": "white",
+          "name": "Main Light"
+        }
+      ]
+    },
+    {
+      "id": "office",
+      "name": "Office",
+      "floor": 0,
+      "lights": [
+        {
+          "id": 10,
+          "type": "main",
+          "colour": "white",
+          "name": "Main Light"
+        }
+      ]
+    },
+    {
+      "id": "bedroom-master",
+      "name": "Master Bedroom",
+      "floor": 1,
+      "lights": [
+        {
+          "id": 11,
+          "type": "main",
+          "colour": "white",
+          "name": "Main Light"
+        }
+      ]
+    },
+    {
+      "id": "bedroom-2",
+      "name": "Bedroom 2",
+      "floor": 1,
+      "lights": [
+        {
+          "id": 12,
+          "type": "main",
+          "colour": "white",
+          "name": "Main Light"
+        }
+      ]
+    },
+    {
+      "id": "bedroom-3",
+      "name": "Bedroom 3",
+      "floor": 1,
+      "lights": [
+        {
+          "id": 13,
+          "type": "main",
+          "colour": "white",
+          "name": "Main Light"
+        }
+      ]
+    },
+    {
+      "id": "bathroom",
+      "name": "Bathroom",
+      "floor": 1,
+      "lights": [
+        {
+          "id": 14,
+          "type": "main",
+          "colour": "white",
+          "name": "Main Light"
+        }
+      ]
+    },
+    {
+      "id": "landing",
+      "name": "Landing",
+      "floor": 1,
+      "lights": [
+        {
+          "id": 15,
+          "type": "main",
+          "colour": "white",
+          "name": "Main Light"
+        }
+      ]
+    }
+  ]
+}

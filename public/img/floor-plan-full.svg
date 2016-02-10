@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="489.59528mm"
+   height="264.31522mm"
+   viewBox="0 0 1734.7864 936.54998"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="floor-plan-full.svg">
+  <defs
+     id="defs4">
+    <clipPath
+       id="clipPath4150"
+       clipPathUnits="userSpaceOnUse">
+      <path
+         inkscape:connector-curvature="0"
+         id="path4152"
+         d="M 0,0 596,0 596,843 0,843 0,0 Z" />
+    </clipPath>
+    <clipPath
+       id="clipPath4156"
+       clipPathUnits="userSpaceOnUse">
+      <path
+         inkscape:connector-curvature="0"
+         id="path4158"
+         d="M 0,0 745,0 745,1053 0,1053 0,0 Z" />
+    </clipPath>
+    <clipPath
+       id="clipPath4662"
+       clipPathUnits="userSpaceOnUse">
+      <path
+         inkscape:connector-curvature="0"
+         id="path4664"
+         d="M 0,0 596,0 596,843 0,843 0,0 Z" />
+    </clipPath>
+    <clipPath
+       id="clipPath4668"
+       clipPathUnits="userSpaceOnUse">
+      <path
+         inkscape:connector-curvature="0"
+         id="path4670"
+         d="m 29,29 539,0 0,784.8737 -539,0 L 29,29 Z" />
+    </clipPath>
+    <pattern
+       y="0"
+       x="0"
+       height="6"
+       width="6"
+       patternUnits="userSpaceOnUse"
+       id="EMFhbasepattern" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.49497475"
+     inkscape:cx="471.17089"
+     inkscape:cy="425.98602"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1857"
+     inkscape:window-height="1057"
+     inkscape:window-x="55"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     fit-margin-top="5"
+     fit-margin-left="5"
+     fit-margin-right="5"
+     fit-margin-bottom="5" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(794.28815,-218.77297)">
+    <g
+       id="floor-0"
+       transform="translate(1159.6492,50.693251)"
+       inkscape:label="#g4322"
+       style="stroke-width:5;stroke-miterlimit:4;stroke-dasharray:none">
+      <rect
+         transform="matrix(0,1,-1,0,0,0)"
+         y="1314.5065"
+         x="715.86346"
+         height="299.97211"
+         width="275.31296"
+         id="room-kitchen"
+         style="fill:#ffb380;fill-opacity:0.45116278;stroke:#000000;stroke-width:5;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         inkscape:label="#rect4166-0-1-1-1" />
+      <rect
+         transform="matrix(0,1,-1,0,0,0)"
+         y="1615.4291"
+         x="806.37756"
+         height="318.254"
+         width="184.78445"
+         id="room-hallway"
+         style="fill:#ffb380;fill-opacity:0.45116278;stroke:#000000;stroke-width:5;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         inkscape:label="#rect4166-0-1-1-1-7" />
+      <path
+         sodipodi:nodetypes="ccccccc"
+         inkscape:connector-curvature="0"
+         id="room-lounge"
+         d="m -1593.5736,411.59991 0.505,132.10696 -21.0975,9.0765 c 0,0 -1.4031,165.65156 -1.0663,252.51051 l -318.3412,2.02031 0,-395.8876 z"
+         style="fill:#ffb380;fill-opacity:0.45116278;fill-rule:evenodd;stroke:#000000;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         inkscape:label="#path4204" />
+      <path
+         sodipodi:nodetypes="ccccsccc"
+         inkscape:connector-curvature="0"
+         id="room-dining"
+         d="m -1592.8209,411.44718 0,133.20377 23.5714,17.14286 9.2857,154.28571 c 0,0 242.8572,1.42857 244.2858,0 1.4285,-1.42857 1.4285,0 1.4285,0 l 0,-302.85714 z"
+         style="fill:#ffb380;fill-opacity:0.45116278;fill-rule:evenodd;stroke:#000000;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         inkscape:label="#path4206" />
+      <rect
+         transform="matrix(0,1,-1,0,0,0)"
+         y="1762.4333"
+         x="991.57324"
+         height="171.28743"
+         width="92.839912"
+         id="porch"
+         style="fill:#cccccc;fill-opacity:1;stroke:#000000;stroke-width:5;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         inkscape:label="#rect4166-0-1-1-0-6-7" />
+      <rect
+         transform="matrix(0,1,-1,0,0,0)"
+         y="1081.0149"
+         x="297.93958"
+         height="232.91437"
+         width="325.7355"
+         id="room-office"
+         style="fill:#ffb380;fill-opacity:0.45116278;stroke:#000000;stroke-width:5;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         inkscape:label="#rect4166-0-1-1-0" />
+      <rect
+         transform="matrix(0,1,-1,0,0,0)"
+         y="1081.0732"
+         x="624.51392"
+         height="232.79778"
+         width="215.69058"
+         id="room-utility"
+         style="fill:#ffb380;fill-opacity:0.45116278;stroke:#000000;stroke-width:5;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         inkscape:label="#rect4166-0-1-1-0-6" />
+      <rect
+         transform="matrix(0,1,-1,0,0,0)"
+         y="1080.9053"
+         x="188.21643"
+         height="233.13376"
+         width="108.97196"
+         id="boiler"
+         style="fill:#cccccc;fill-opacity:1;stroke:#000000;stroke-width:5;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         inkscape:label="#rect4166-0-1-1-0-6-7-8" />
+      <rect
+         transform="matrix(0,1,-1,0,0,0)"
+         y="1555.7386"
+         x="541.71979"
+         height="58.6525"
+         width="173.38922"
+         id="fireplace"
+         style="fill:#cccccc;fill-opacity:1;stroke:#000000;stroke-width:5;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         inkscape:label="#rect4166-0-1-1-0-6-7-1" />
+    </g>
+    <g
+       id="floor-1"
+       transform="translate(-62.629457,1095.0054)"
+       inkscape:label="#g4479"
+       style="stroke-width:5;stroke-miterlimit:4;stroke-dasharray:none">
+      <rect
+         transform="matrix(0,1,-1,0,0,0)"
+         y="-982.87329"
+         x="-632.34277"
+         height="260.77118"
+         width="350.37155"
+         id="room-bedroom-2"
+         style="fill:#ffb47e;fill-opacity:0.45098039;stroke:#000000;stroke-width:5;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         inkscape:label="#rect4166-0-1-1-0-6-7-8-8-2" />
+      <path
+         sodipodi:nodetypes="cccccc"
+         inkscape:connector-curvature="0"
+         id="room-bedroom-master"
+         d="m 721.81571,-632.37461 0,175.21147 0,175.21147 -360.36325,0 0,-350.42294 z"
+         style="fill:#ffb47e;fill-opacity:0.45098039;stroke:#000000;stroke-width:5;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         inkscape:label="#rect4166-0-1-1-0-6-7-8-8-2-3" />
+      <rect
+         transform="matrix(0,1,-1,0,0,0)"
+         y="-721.45563"
+         x="-632.38068"
+         height="58.577076"
+         width="219.67421"
+         id="wardrobes"
+         style="fill:#cccccc;fill-opacity:1;stroke:#000000;stroke-width:5;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         inkscape:label="#rect4166-0-1-1-0-6-7-8-8-2-8" />
+      <rect
+         inkscape:label="#rect4166-0-1-1-0-6-7-8-8"
+         transform="matrix(0,1,-1,0,0,0)"
+         y="-982.46997"
+         x="-282.87677"
+         height="163.52151"
+         width="229.35973"
+         id="room-bathroom"
+         style="fill:#ffb47e;fill-opacity:0.45098039;stroke:#000000;stroke-width:5;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+      <path
+         inkscape:label="#path4396"
+         sodipodi:nodetypes="ccccccc"
+         inkscape:connector-curvature="0"
+         id="room-bedroom-3"
+         d="m 361.78628,-281.96072 0,228.485754 209.10156,-0.252538 0,-87.626616 53.53814,0 0,-141.58303 z"
+         style="fill:#ffb47e;fill-opacity:0.45098039;fill-rule:evenodd;stroke:#000000;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <path
+         inkscape:label="#path4413"
+         sodipodi:nodetypes="ccccccc"
+         inkscape:connector-curvature="0"
+         id="room-landing"
+         d="m 819.40571,-282.82164 -194.95943,0 0,141.42135 -53.5381,-0.25254 0,88.135786 247.73992,0 z"
+         style="fill:#ffb47e;fill-opacity:0.45098039;fill-rule:evenodd;stroke:#000000;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <rect
+         transform="matrix(0,1,-1,0,0,0)"
+         y="-570.71265"
+         x="-141.59802"
+         height="74.170525"
+         width="88.037926"
+         id="cupboard"
+         style="fill:#cccccc;fill-opacity:1;stroke:#000000;stroke-width:5;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         inkscape:label="#rect4166-0-1-1-0-6-7-8-8-2-8-6" />
+    </g>
+  </g>
+</svg>

@@ -1,6 +1,6 @@
 <svg id="svg2" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.w3.org/2000/svg" height="100%" width="100%" version="1.1" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" viewBox="0 0 1734.7864 936.54998">
  <g id="layer1" transform="translate(794.29 -218.77)">
-  <g id="floor-ground" style="stroke-width:5" transform="translate(1159.6 50.693)">
+  <g id="floor-0" style="stroke-width:5" transform="translate(1159.6 50.693)">
    <rect id="room-kitchen" style="fill-opacity:.45116;stroke:#000;stroke-width:5;fill:#ffb380" transform="rotate(90)" height="299.97" width="275.31" y="1314.5" x="715.86"/>
    <rect id="room-hallway" style="fill-opacity:.45116;stroke:#000;stroke-width:5;fill:#ffb380" transform="rotate(90)" height="318.25" width="184.78" y="1615.4" x="806.38"/>
    <path id="room-lounge" style="fill-opacity:.45116;fill-rule:evenodd;stroke:#000;stroke-width:5;fill:#ffb380" d="m-1593.6 411.6 0.505 132.11-21.098 9.0765s-1.4031 165.65-1.0663 252.51l-318.34 2.0203v-395.89z"/>
