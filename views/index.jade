@@ -4,7 +4,8 @@ html
         title='Home Control Web App'
         link(rel='stylesheet', href='/css/style.css')
     body
-        h1='Home Control'
+        #header
+            h1='Home Control'
         object(id='floor-plan', data='/img/floor-plan.svg', type='image/svg+xml')
     script(src='/socket.io/socket.io.js')
     script(src='/js/events.js')
