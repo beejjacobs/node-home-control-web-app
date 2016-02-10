@@ -9,6 +9,14 @@ var floorPlan = {
 };
 var socket = io();
 
+function onDOMLoad() {
+  var svgObject = document.getElementById('floor-plan');
+  svgObject.addEventListener('load', function() {
+    onFloorPlanLoad(svgObject);
+  });
+}
+document.addEventListener('DOMContentLoaded', onDOMLoad);
+
 function onFloorPlanLoad(svgObject) {
   floorPlan.svg = svgObject.contentDocument;
   floorPlan.rooms = floorPlan.svg.querySelectorAll("[id^='room']");
@@ -20,13 +28,6 @@ function onFloorPlanLoad(svgObject) {
       roomDoubleClick(floorPlan.rooms[i]);
     });
   }
-}
-
-function onDOMLoad() {
-  var svgObject = document.getElementById('floor-plan');
-  svgObject.addEventListener('load', function() {
-    onFloorPlanLoad(svgObject);
-  });
 }
 
 function roomClick(room) {
@@ -41,5 +42,3 @@ function roomDoubleClick(room) {
   room.style.fill = 'blue';
   socket.emit('room', roomName);
 }
-
-document.addEventListener('DOMContentLoaded', onDOMLoad);
