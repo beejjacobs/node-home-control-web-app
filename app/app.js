@@ -12,7 +12,7 @@ var io = require('socket.io')(http);
 var config = require('./config.json');
 
 //set express parameters to render jade template
-app.set('views', './src/views');
+app.set('views', __dirname + '/views');
 app.set('view engine', 'jade');
 app.use(express.static(__dirname + '/public'));
 

@@ -2,8 +2,8 @@
   "name": "node-home-control-web-app",
   "version": "0.0.1",
   "scripts": {
-    "run": "node src/app.js",
-    "jsdoc2md": "jsdoc2md -s name --src src/lib/*.js > docs/README.md"
+    "run": "node app/app.js",
+    "jsdoc2md": "jsdoc2md -s name --src app/lib/*.js > docs/README.md"
   },
   "dependencies": {
     "express": "4.13.3",
