@@ -62,6 +62,11 @@ class Control {
     });
   }
 
+  /**
+   * Toggle the power state for a given light
+   * @param {int} roomIndex
+   * @param {int} lightIndex
+   */
   lightTogglePower(roomIndex, lightIndex) {
     var hueID = this.getLightHueID(roomIndex, lightIndex);
     //todo: get light state
@@ -69,18 +74,36 @@ class Control {
     this.emit(roomIndex, lightIndex, 'power', true);
   }
 
+  /**
+   * Set the colour state of a light
+   * @param {int} roomIndex
+   * @param {int} lightIndex
+   * @param {object} colour
+   */
   lightSetColour(roomIndex, lightIndex, colour) {
     var hueID = this.getLightHueID(roomIndex, lightIndex);
     this.setColour(hueID, colour);
     this.emit(roomIndex, lightIndex, 'colour', colour);
   }
 
+  /**
+   * Set the colour temperature of a light
+   * @param {int} roomIndex
+   * @param {int} lightIndex
+   * @param {int} colourTemp
+   */
   lightSetColourTemp(roomIndex, lightIndex, colourTemp) {
     var hueID = this.getLightHueID(roomIndex, lightIndex);
     this.setColour(hueID, colourTemp);
     this.emit(roomIndex, lightIndex, 'colourTemp', colourTemp);
   }
 
+  /**
+   * Set the brightness of a light
+   * @param {int} roomIndex
+   * @param {int} lightIndex
+   * @param {int} brightness
+   */
   lightSetBrightness(roomIndex, lightIndex, brightness) {
     var hueID = this.getLightHueID(roomIndex, lightIndex);
     this.setBrightness(hueID, brightness);
