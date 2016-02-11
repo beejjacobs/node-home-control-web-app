@@ -4,9 +4,9 @@ var hueAPI = require('node-hue-api').HueApi;
 
 class Control {
   /**
-   *
-   * @param {object} io
-   * @param {object} config
+   * Control class for controlling devices from received client events.
+   * @param {object} io socket.io instance
+   * @param {object} config config.json object
    * @param {string} config.houseName
    * @param {string} config.hueBridgeIP
    * @param {string} config.hueBridgeUserName

@@ -12,23 +12,30 @@
     * [.getRoomID(roomIndex)](#Control+getRoomID) ⇒ <code>string</code>
     * [.getRoomIndex(id)](#Control+getRoomIndex) ⇒ <code>number</code>
     * [.getRoomsOnFloor(floor)](#Control+getRoomsOnFloor) ⇒ <code>Array</code>
+    * [.lightSetBrightness(roomIndex, lightIndex, brightness)](#Control+lightSetBrightness)
+    * [.lightSetColour(roomIndex, lightIndex, colour)](#Control+lightSetColour)
+    * [.lightSetColourTemp(roomIndex, lightIndex, colourTemp)](#Control+lightSetColourTemp)
+    * [.lightTogglePower(roomIndex, lightIndex)](#Control+lightTogglePower)
+    * [.processLightEvent(data)](#Control+processLightEvent)
+    * [.processRoomEvent(data)](#Control+processRoomEvent)
     * [.setBrightness(hueID, brightness)](#Control+setBrightness)
     * [.setColour(hueID, colour)](#Control+setColour)
     * [.setPower(hueID, state)](#Control+setPower)
-    * [.toggleMainLights(roomID)](#Control+toggleMainLights)
 
 <a name="new_Control_new"></a>
 ### new Control(io, config)
+Control class for controlling devices from received client events.
 
-| Param | Type |
-| --- | --- |
-| io | <code>object</code> | 
-| config | <code>object</code> | 
-| config.houseName | <code>string</code> | 
-| config.hueBridgeIP | <code>string</code> | 
-| config.hueBridgeUserName | <code>string</code> | 
-| config.floors | <code>Array</code> | 
-| config.rooms | <code>Array</code> | 
+
+| Param | Type | Description |
+| --- | --- | --- |
+| io | <code>object</code> | socket.io instance |
+| config | <code>object</code> | config.json object |
+| config.houseName | <code>string</code> |  |
+| config.hueBridgeIP | <code>string</code> |  |
+| config.hueBridgeUserName | <code>string</code> |  |
+| config.floors | <code>Array</code> |  |
+| config.rooms | <code>Array</code> |  |
 
 <a name="Control+emit"></a>
 ### control.emit(roomIndex, lightIndex, command, value)
@@ -124,6 +131,80 @@ Get an array of room indexes for the given floor
 | --- | --- |
 | floor | <code>int</code> | 
 
+<a name="Control+lightSetBrightness"></a>
+### control.lightSetBrightness(roomIndex, lightIndex, brightness)
+Set the brightness of a light
+
+**Kind**: instance method of <code>[Control](#Control)</code>  
+
+| Param | Type |
+| --- | --- |
+| roomIndex | <code>int</code> | 
+| lightIndex | <code>int</code> | 
+| brightness | <code>int</code> | 
+
+<a name="Control+lightSetColour"></a>
+### control.lightSetColour(roomIndex, lightIndex, colour)
+Set the colour state of a light
+
+**Kind**: instance method of <code>[Control](#Control)</code>  
+
+| Param | Type |
+| --- | --- |
+| roomIndex | <code>int</code> | 
+| lightIndex | <code>int</code> | 
+| colour | <code>object</code> | 
+
+<a name="Control+lightSetColourTemp"></a>
+### control.lightSetColourTemp(roomIndex, lightIndex, colourTemp)
+Set the colour temperature of a light
+
+**Kind**: instance method of <code>[Control](#Control)</code>  
+
+| Param | Type |
+| --- | --- |
+| roomIndex | <code>int</code> | 
+| lightIndex | <code>int</code> | 
+| colourTemp | <code>int</code> | 
+
+<a name="Control+lightTogglePower"></a>
+### control.lightTogglePower(roomIndex, lightIndex)
+Toggle the power state for a given light
+
+**Kind**: instance method of <code>[Control](#Control)</code>  
+
+| Param | Type |
+| --- | --- |
+| roomIndex | <code>int</code> | 
+| lightIndex | <code>int</code> | 
+
+<a name="Control+processLightEvent"></a>
+### control.processLightEvent(data)
+Process 'light' event from a client
+
+**Kind**: instance method of <code>[Control](#Control)</code>  
+
+| Param | Type |
+| --- | --- |
+| data | <code>object</code> | 
+| data.command | <code>string</code> | 
+| data.roomID | <code>string</code> | 
+| data.lightID | <code>string</code> | 
+| data.colour | <code>object</code> | 
+| data.colourTemp | <code>int</code> | 
+| data.brightness | <code>int</code> | 
+
+<a name="Control+processRoomEvent"></a>
+### control.processRoomEvent(data)
+Process 'room' event from a clientToggle all lights of type main in the room
+
+**Kind**: instance method of <code>[Control](#Control)</code>  
+
+| Param | Type |
+| --- | --- |
+| data | <code>object</code> | 
+| data.roomID | <code>string</code> | 
+
 <a name="Control+setBrightness"></a>
 ### control.setBrightness(hueID, brightness)
 Set light brightness by hueID
@@ -156,14 +237,4 @@ Set a light power state by hueID
 | --- | --- |
 | hueID | <code>int</code> | 
 | state | <code>boolean</code> | 
-
-<a name="Control+toggleMainLights"></a>
-### control.toggleMainLights(roomID)
-Toggle all lights of type main in a room
-
-**Kind**: instance method of <code>[Control](#Control)</code>  
-
-| Param | Type |
-| --- | --- |
-| roomID | <code>string</code> | 
 
