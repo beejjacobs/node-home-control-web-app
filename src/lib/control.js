@@ -28,38 +28,60 @@ class Control {
         console.log(data);
       });
 
-      socket.on('room', function(roomID){
-        self.toggleMainLights(roomID);
+      socket.on('room', function(data){
+        self.processRoomEvent(data);
       });
 
-      /**
-       * Light control event
-       * @param {object} data
-       * @param {string} data.command
-       * @param {string} data.roomID
-       * @param {string} data.lightID
-       * @param {object} data.colour
-       * @param {int} data.colourTemp
-       */
       socket.on('light', function(data){
-        var roomIndex = self.getRoomIndex(data.roomID);
-        var lightIndex = self.getLightIndex(roomIndex, data.lightID);
-        switch(data.command) {
-          case 'power':
-            self.lightTogglePower(roomIndex, lightIndex);
-            break;
-          case 'colour':
-            self.lightSetColour(roomIndex, lightIndex, data.colour);
-            break;
-          case 'colourTemp':
-            self.lightSetColourTemp(roomIndex, lightIndex, data.colourTemp);
-            break;
-          case 'brightness':
-            self.lightSetBrightness(roomIndex, lightIndex, data.brightness);
-            break;
-        }
+        self.processLightEvent(data);
       });
     });
+  }
+
+  /**
+   * Process 'room' event from a client
+   * Toggle all lights of type main in the room
+   * @param {object} data
+   * @param {string} data.roomID
+   */
+  processRoomEvent(data) {
+    //todo: check data.roomID exists
+    var roomIndex = this.getRoomIndex(data.roomID);
+    var lights = this.getLightsByType(roomIndex, 'main');
+
+    for(var i = 0; i < lights.length; i++) {
+      this.lightTogglePower(roomIndex, lights[i]);
+    }
+  }
+
+  /**
+   * Process 'light' event from a client
+   * @param {object} data
+   * @param {string} data.command
+   * @param {string} data.roomID
+   * @param {string} data.lightID
+   * @param {object} data.colour
+   * @param {int} data.colourTemp
+   * @param {int} data.brightness
+   */
+  processLightEvent(data) {
+    //todo: check objects exist
+    var roomIndex = this.getRoomIndex(data.roomID);
+    var lightIndex = this.getLightIndex(roomIndex, data.lightID);
+    switch(data.command) {
+      case 'power':
+        this.lightTogglePower(roomIndex, lightIndex);
+        break;
+      case 'colour':
+        this.lightSetColour(roomIndex, lightIndex, data.colour);
+        break;
+      case 'colourTemp':
+        this.lightSetColourTemp(roomIndex, lightIndex, data.colourTemp);
+        break;
+      case 'brightness':
+        this.lightSetBrightness(roomIndex, lightIndex, data.brightness);
+        break;
+    }
   }
 
   /**
@@ -108,19 +130,6 @@ class Control {
     var hueID = this.getLightHueID(roomIndex, lightIndex);
     this.setBrightness(hueID, brightness);
     this.emit(roomIndex, lightIndex, 'brightness', brightness);
-  }
-
-  /**
-   * Toggle all lights of type main in a room
-   * @param {string} roomID
-   */
-  toggleMainLights(roomID) {
-    var roomIndex = this.getRoomIndex(roomID);
-    var lights = this.getLightsByType(roomIndex, 'main');
-
-    for(var i = 0; i < lights.length; i++) {
-      this.lightTogglePower(roomIndex, lights[i]);
-    }
   }
 
   /**
@@ -256,7 +265,7 @@ class Control {
     var lightID = this.getLightID(roomIndex, lightIndex);
     var hueID = this.getLightHueID(roomIndex, lightIndex);
 
-    console.info({roomID, roomIndex, lightIndex, lightID, hueID, command, value});
+    console.info({roomID, roomIndex, lightID, lightIndex, hueID, command, value});
     this.io.sockets.emit('light', {roomID, lightID, command, value});
   }
 }

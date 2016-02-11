@@ -37,8 +37,8 @@ function roomClick(room) {
 }
 
 function roomDoubleClick(room) {
-  var roomName = room.id.slice(5);
-  console.log('room: ' + roomName);
+  var roomID = room.id.slice(5);
+  console.log('room: ' + roomID);
   room.style.fill = 'blue';
-  socket.emit('room', roomName);
+  socket.emit('room', {roomID});
 }
