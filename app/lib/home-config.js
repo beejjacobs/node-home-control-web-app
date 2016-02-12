@@ -56,14 +56,23 @@ class HomeConfig {
   }
 
   /**
+   * Return floor ID from room index
+   * @param {int} roomIndex
+   * @returns {int}
+   */
+  getRoomFloor(roomIndex) {
+    return this.config.rooms[roomIndex].floor;
+  }
+
+  /**
    * Get an array of room indexes for the given floor
-   * @param {int} floor
+   * @param {int} floorID
    * @returns {int[]} roomIndex
    */
   getRoomsOnFloor(floorID) {
     var rooms = [];
     for(var i = 0; i < this.getNumberOfRooms(); i++) {
-      if(this.config.rooms[i].floor == floorID) {
+      if(this.getRoomFloor(i) == floorID) {
         rooms.push(i);
       }
     }
@@ -79,7 +88,7 @@ class HomeConfig {
   getLightsByType(roomIndex, type) {
     var lights = [];
     var roomLights = this.config.rooms[roomIndex].lights;
-    for(var i = 0; i < roomLights.length; i++) {
+    for(var i = 0; i < this.getNumberOfLightsByRoom(roomIndex); i++) {
       if(roomLights[i].type == type) {
         lights.push(i);
       }
