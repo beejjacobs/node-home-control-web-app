@@ -1,22 +1,37 @@
 'use strict';
 
 /**
- * Abstraction class around the config object
+ * Config object matches config.json file
+ * @typedef {object} config
+ * @property {string} houseName
+ * @property {string} hueBridgeIP
+ * @property {string} hueBridgeUserName
+ * @property {Object[]} floors
+ * @property {string} floors[].id
+ * @property {string} floors[].name
+ * @property {Object[]} rooms
+ * @property {string} rooms[].id
+ * @property {string} rooms[].name
+ * @property {string} rooms[].floorID
+ * @property {Object[]} lights
+ * @property {string} lights[].id
+ * @property {string} lights[].name
+ * @property {string} lights[].roomID
+ * @property {int} lights[].hueID
+ * @property {string} lights[].type
+ * @property {string} lights[].colour
  */
+
+/**
+ * Abstraction class around the config object
+*/
 class HomeConfig {
   /**
-   * @param {Object} config
-   * @param {string} config.houseName
-   * @param {string} config.hueBridgeIP
-   * @param {string} config.hueBridgeUserName
-   * @param {Object[]} config.floors
-   * @param {Object[]} config.rooms
-   * @param {Object[]} config.lights
+   * @param {config} config
    */
   constructor(config) {
     /**
-     * config.json object
-     * @type {Object}
+     * @type {config}
      */
     this.config = config;
   }
