@@ -1,10 +1,11 @@
 /**
- * Main app for Node Home Control Web App
+ * Main file for Node Home Control Web App
  *
- * @author Ben Jacobs
+ * @author Ben Jacobs <ben@bljacobs.co.uk>
+ *
  */
 
-var control = require('./lib/control');
+var homeControl = require('./lib/home-control');
 var express = require('express');
 var app = express();
 var http = require('http').Server(app);
@@ -24,4 +25,4 @@ http.listen(3000, function(){
     console.log('Server listening on port 3000');
 });
 
-new control(io, config);
+new homeControl(io, config);

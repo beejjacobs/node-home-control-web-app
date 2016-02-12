@@ -1,29 +1,24 @@
 'use strict';
 
+var HomeConfig = require('./home-config');
 var hueAPI = require('node-hue-api').HueApi;
 
-class Control {
+/**
+ * @extends HomeConfig
+ */
+class HomeControl extends HomeConfig {
   /**
-   * Control class for controlling devices from received client events.
+   * HomeControl class for controlling devices from received client events.
    * @param {Object} io socket.io instance
    * @param {Object} config config.json object
-   * @param {string} config.houseName
-   * @param {string} config.hueBridgeIP
-   * @param {string} config.hueBridgeUserName
-   * @param {Object[]} config.floors
-   * @param {Object[]} config.rooms
    */
   constructor(io,  config) {
+    super(config);
     /**
      * Socket.io instance
      * @type {Object}
      */
     this.io = io;
-    /**
-     * config.json object
-     * @type {Object}
-     */
-    this.config = config;
     /**
      * node-hue-api
      * @type {Object}
@@ -40,6 +35,10 @@ class Control {
         console.log(data);
       });
 
+      socket.on('floor', function(data){
+        self.processFloorEvent(data);
+      });
+
       socket.on('room', function(data){
         self.processRoomEvent(data);
       });
@@ -48,6 +47,15 @@ class Control {
         self.processLightEvent(data);
       });
     });
+  }
+
+  /**
+   * Process 'floor' event from a client
+   * @param {Object} data
+   * @param {int} data.floorID
+   */
+  processFloorEvent(data) {
+
   }
 
   /**
@@ -93,6 +101,22 @@ class Control {
       case 'brightness':
         this.lightSetBrightness(roomIndex, lightIndex, data.brightness);
         break;
+    }
+  }
+
+  /**
+   * Set all the lights on a floor on or off
+   * @param {int} floorID
+   * @param {boolean} state
+   */
+  floorSetPower(floorID, state) {
+    var roomIndexes = this.getRoomsOnFloor(data.floorID);
+    var hueID = null;
+    for(let i = 0; i < rooms.length; i++) {
+      for(let j = 0; j < this.getNumberOfLightsByRoom(roomIndexes[i]); j++) {
+        hueID = this.getLightHueID(roomIndexes[i],  j);
+        this.setPower(hueID, state);
+      }
     }
   }
 
@@ -175,97 +199,6 @@ class Control {
   }
 
   /**
-   * Get the index for a room object from its ID
-   * @param {string} id
-   * @returns {int} roomIndex
-   */
-  getRoomIndex(id) {
-    for(var i = 0; i < this.config.rooms.length; i++) {
-      if(this.config.rooms[i].id == id) {
-        break;
-      }
-    }
-    return i;
-  }
-
-  /**
-   * Return room ID from room index
-   * @param {int} roomIndex
-   * @returns {string} roomID
-   */
-  getRoomID(roomIndex) {
-    return this.config.rooms[roomIndex].id;
-  }
-
-  /**
-   * Get an array of room indexes for the given floor
-   * @param {int} floor
-   * @returns {int[]} roomIndex
-   */
-  getRoomsOnFloor(floor) {
-    var rooms = [];
-    for(var i = 0; i < this.config.rooms.length; i++) {
-      if(this.config.rooms[i].floor == floor) {
-        rooms.push(i);
-      }
-    }
-    return rooms;
-  }
-
-  /**
-   * Get an array of light indexes of a particular type for the given room
-   * @param {int} roomIndex
-   * @param {string} type
-   * @returns {int[]} lightIndex
-   */
-  getLightsByType(roomIndex, type) {
-    var lights = [];
-    var roomLights = this.config.rooms[roomIndex].lights;
-    for(var i = 0; i < roomLights.length; i++) {
-      if(roomLights[i].type == type) {
-        lights.push(i);
-      }
-    }
-    return lights;
-  }
-
-  /**
-   * Get the index for a light object from its ID and room
-   * @param {int} roomIndex
-   * @param {string} lightID
-   * @returns {int} lightIndex
-   */
-  getLightIndex(roomIndex, lightID) {
-    var roomLights = this.config.rooms[roomIndex].lights;
-    for(var i = 0; i < roomLights.length; i++) {
-      if(roomLights[i].id == lightID) {
-        break;
-      }
-    }
-    return i;
-  }
-
-  /**
-   * Return light ID for a given room and light index
-   * @param {int} roomIndex
-   * @param {int} lightIndex
-   * @returns {string} lightID
-   */
-  getLightID(roomIndex, lightIndex) {
-    return this.config.rooms[roomIndex].lights[lightIndex].id;
-  }
-
-  /**
-   * Return hue ID for a given room and light index
-   * @param {int} roomIndex
-   * @param {int} lightIndex
-   * @returns {int} hueID
-   */
-  getLightHueID(roomIndex, lightIndex) {
-    return this.config.rooms[roomIndex].lights[lightIndex].hueID;
-  }
-
-  /**
    * Emit a socket event and log the action
    * @param {int} roomIndex
    * @param {int} lightIndex
@@ -282,4 +215,4 @@ class Control {
   }
 }
 
-module.exports = Control;
+module.exports = HomeControl;
