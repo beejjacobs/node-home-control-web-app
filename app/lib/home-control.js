@@ -24,8 +24,8 @@ class HomeControl extends HomeConfig {
      * @type {Object}
      */
     this.hue = new hueAPI(
-      this.config.hueBridgeIP,
-      this.config.hueBridgeUserName
+      this.getHueIP(),
+      this.getHueUserName()
     );
 
     var self = this;

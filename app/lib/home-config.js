@@ -20,13 +20,25 @@ class HomeConfig {
     this.config = config;
   }
 
+  getHouseName() {
+    return this.config.houseName;
+  }
+
+  getHueIP() {
+    return this.config.hueBridgeIP;
+  }
+
+  getHueUserName() {
+    return this.config.hueBridgeUserName;
+  }
+
   /**
    * Get the index for a room object from its ID
    * @param {string} id
    * @returns {int} roomIndex
    */
   getRoomIndex(id) {
-    for(var i = 0; i < this.config.rooms.length; i++) {
+    for(var i = 0; i < this.getNumberOfRooms(); i++) {
       if(this.getRoomID(i) == id) {
         break;
       }

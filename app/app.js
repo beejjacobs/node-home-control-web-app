@@ -5,7 +5,7 @@
  *
  */
 
-var homeControl = require('./lib/home-control');
+var HomeControl = require('./lib/home-control');
 var express = require('express');
 var app = express();
 var http = require('http').Server(app);
@@ -25,4 +25,4 @@ http.listen(3000, function(){
     console.log('Server listening on port 3000');
 });
 
-new homeControl(io, config);
+new HomeControl(io, config);
