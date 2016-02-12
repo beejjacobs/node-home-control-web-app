@@ -160,17 +160,89 @@ class HomeConfig {
   }
 
   /**
-   * Get the index for a room object from its ID
-   * @param {string} id
-   * @returns {int} roomIndex
+   * Get the total number of floors
+   * @returns {int}
    */
-  getRoomIndex(id) {
+  getNumberOfFloors() {
+    return this.config.floors.length;
+  }
+
+  /**
+   * Get the total number of rooms
+   * @returns {int}
+   */
+  getNumberOfRooms() {
+    return this.config.rooms.length;
+  }
+
+  /**
+   * Get the total number of lights
+   * @returns {int}
+   */
+  getNumberOfLights() {
+    return this.config.lights.length;
+  }
+
+  /**
+   * Get the number of rooms on the given floor
+   * @param {int} floorIndex
+   * @return {int}
+   */
+  getNumberOfRoomsByFloor(floorIndex) {
+    var count = 0;
+    var floorID = this.getFloorID(floorIndex);
     for(var i = 0; i < this.getNumberOfRooms(); i++) {
-      if(this.getRoomID(i) == id) {
-        break;
+      if(this.getRoomFloorID(i) == floorID) {
+        count++;
       }
     }
-    return i;
+    return count;
+  }
+
+  /**
+   * Get the number of lights in a room
+   * @param {int} roomIndex
+   * @returns {int}
+   */
+  getNumberOfLightsByRoom(roomIndex) {
+    var count = 0;
+    var roomID = this.getRoomID(roomIndex);
+    for(var i = 0; i < this.getNumberOfLights(); i++) {
+      if(this.getLightRoomID(i) == roomID) {
+        count++;
+      }
+    }
+    return count;
+  }
+
+  /**
+   * Get the number of lights by type
+   * @param {string} type
+   * @returns {int}
+   */
+  getNumberOfLightsByType(type) {
+    var count = 0;
+    for(var i = 0; i < this.getNumberOfLights(); i++) {
+      if(this.getLightType(i) == type) {
+        count++;
+      }
+    }
+    return count;
+  }
+
+  /**
+   * Get the number of lights by type
+   * @param {string} colour
+   * @returns {int}
+   */
+  getNumberOfLightsByColour(colour) {
+    var count = 0;
+    for(var i = 0; i < this.getNumberOfLights(); i++) {
+      if(this.getLightColour(i) == colour) {
+        count++;
+      }
+    }
+    return count;
   }
 
   /**
@@ -186,6 +258,20 @@ class HomeConfig {
       }
     }
     return rooms;
+  }
+
+  /**
+   * Get the index for a room object from its ID
+   * @param {string} id
+   * @returns {int} roomIndex
+   */
+  getRoomIndex(id) {
+    for(var i = 0; i < this.getNumberOfRooms(); i++) {
+      if(this.getRoomID(i) == id) {
+        break;
+      }
+    }
+    return i;
   }
 
   /**
@@ -219,54 +305,6 @@ class HomeConfig {
       }
     }
     return i;
-  }
-
-  /**
-   * Get the total number of floors
-   * @returns {int}
-   */
-  getNumberOfFloors() {
-    return this.config.floors.length;
-  }
-
-  /**
-   * Get the total number of rooms
-   * @returns {int}
-   */
-  getNumberOfRooms() {
-    return this.config.rooms.length;
-  }
-
-  /**
-   * Get the total number of lights
-   * @returns {int}
-   */
-  getNumberOfLights() {
-    return this.config.lights.length;
-  }
-
-  /**
-   * Get the number of rooms on the given floor
-   * @param {int} floorID
-   * @return {int}
-   */
-  getNumberOfRoomsByFloor(floorID) {
-    var count = 0;
-    for(var i = 0; i < this.getNumberOfRooms(); i++) {
-      if(this.config.rooms[i].floor == floorID) {
-        count++;
-      }
-    }
-    return count;
-  }
-
-  /**
-   * Get the number of lights in a room
-   * @param roomIndex
-   * @returns {Number}
-   */
-  getNumberOfLightsByRoom(roomIndex) {
-    //todo
   }
 }
 
