@@ -3,198 +3,38 @@
   "hueBridgeIP": "192.168.0.111",
   "hueBridgeUserName": "08a902b95915cdd9b75547cb50892dc4",
   "floors": [
-    {"id": 0, "name": "Ground Floor"},
-    {"id": 1, "name": "First Floor"}
+    {"id": "0", "name": "Ground Floor"},
+    {"id": "1", "name": "First Floor"}
   ],
   "rooms": [
-    {
-      "id": "lounge",
-      "name": "Lounge",
-      "floor": 0,
-      "lights": [
-        {
-          "id": "main",
-          "hueID": 0,
-          "type": "main",
-          "colour": "rgb",
-          "name": "Main Light"
-        },
-        {
-          "id": "corner",
-          "hueID": 1,
-          "type": "lamp",
-          "colour": "rgb",
-          "name": "Corner Light"
-        },
-        {
-          "id": "uplight-1",
-          "hueID": 2,
-          "type": "uplight",
-          "colour": "rgb",
-          "name": "Up Light 1"
-        },
-        {
-          "id": "uplight-2",
-          "hueID": 3,
-          "type": "uplight",
-          "colour": "rgb",
-          "name": "Up Light 2"
-        },
-        {
-          "id": "uplight-3",
-          "hueID": 4,
-          "type": "uplight",
-          "colour": "rgb",
-          "name": "Up Light 3"
-        }
-      ]
-    },
-    {
-      "id": "dining",
-      "name": "Dining Room",
-      "floor": 0,
-      "lights": [
-        {
-          "id": "main",
-          "hueID": 5,
-          "type": "main",
-          "colour": "white",
-          "name": "Main Light"
-        }
-      ]
-    },
-    {
-      "id": "hallway",
-      "name": "Hallway",
-      "floor": 0,
-      "lights": [
-        {
-          "id": "main",
-          "hueID": 6,
-          "type": "main",
-          "colour": "white",
-          "name": "Main Light"
-        }
-      ]
-    },
-    {
-      "id": "kitchen",
-      "name": "Kitchen",
-      "floor": 0,
-      "lights": [
-        {
-          "id": "main",
-          "hueID": 7,
-          "type": "main",
-          "colour": "white",
-          "name": "Main Light"
-        },
-        {
-          "id": "main",
-          "hueID": 8,
-          "type": "strip",
-          "colour": "rgb",
-          "name": "Worktop Light"
-        }
-      ]
-    },
-    {
-      "id": "utility",
-      "name": "Utility",
-      "floor": 0,
-      "lights": [
-        {
-          "id": "main",
-          "hueID": 9,
-          "type": "main",
-          "colour": "white",
-          "name": "Main Light"
-        }
-      ]
-    },
-    {
-      "id": "office",
-      "name": "Office",
-      "floor": 0,
-      "lights": [
-        {
-          "id": "main",
-          "hueID": 10,
-          "type": "main",
-          "colour": "white",
-          "name": "Main Light"
-        }
-      ]
-    },
-    {
-      "id": "bedroom-master",
-      "name": "Master Bedroom",
-      "floor": 1,
-      "lights": [
-        {
-          "id": "main",
-          "hueID": 11,
-          "type": "main",
-          "colour": "white",
-          "name": "Main Light"
-        }
-      ]
-    },
-    {
-      "id": "bedroom-2",
-      "name": "Bedroom 2",
-      "floor": 1,
-      "lights": [
-        {
-          "id": "main",
-          "hueID": 12,
-          "type": "main",
-          "colour": "white",
-          "name": "Main Light"
-        }
-      ]
-    },
-    {
-      "id": "bedroom-3",
-      "name": "Bedroom 3",
-      "floor": 1,
-      "lights": [
-        {
-          "id": "main",
-          "hueID": 13,
-          "type": "main",
-          "colour": "white",
-          "name": "Main Light"
-        }
-      ]
-    },
-    {
-      "id": "bathroom",
-      "name": "Bathroom",
-      "floor": 1,
-      "lights": [
-        {
-          "id": "main",
-          "hueID": 14,
-          "type": "main",
-          "colour": "white",
-          "name": "Main Light"
-        }
-      ]
-    },
-    {
-      "id": "landing",
-      "name": "Landing",
-      "floor": 1,
-      "lights": [
-        {
-          "id": "main",
-          "hueID": 15,
-          "type": "main",
-          "colour": "white",
-          "name": "Main Light"
-        }
-      ]
-    }
+    {"id": "lounge", "name": "Lounge", "floorID": "0"},
+    {"id": "dining", "name": "Dining Room", "floorID": "0"},
+    {"id": "hallway", "name": "Hallway", "floorID": "0"},
+    {"id": "kitchen", "name": "Kitchen", "floorID": "0"},
+    {"id": "utility", "name": "Utility", "floorID": "0"},
+    {"id": "office", "name": "Office", "floorID": "0"},
+    {"id": "bedroom-master", "name": "Master Bedroom", "floorID": "1"},
+    {"id": "bedroom-2", "name": "Bedroom 2", "floorID": "1"},
+    {"id": "bedroom-3", "name": "Bedroom 3", "floorID": "1"},
+    {"id": "bathroom", "name": "Bathroom", "floorID": "1"},
+    {"id": "landing", "name": "Landing", "floorID": "1"}
+  ],
+  "lights": [
+    {"id": "lounge-main", "name": "Main Light", "roomID": "lounge", "hueID": 0, "type": "main", "colour": "rgb"},
+    {"id": "lounge-corner", "name": "Corner Light", "roomID": "lounge", "hueID": 1, "type": "lamp", "colour": "rgb"},
+    {"id": "lounge-uplight-1", "name": "Up Light 1", "roomID": "lounge", "hueID": 2, "type": "uplight", "colour": "rgb"},
+    {"id": "lounge-uplight-2", "name": "Up Light 2", "roomID": "lounge", "hueID": 3, "type": "uplight", "colour": "rgb"},
+    {"id": "lounge-uplight-3", "name": "Up Light 3", "roomID": "lounge", "hueID": 4, "type": "uplight", "colour": "rgb"},
+    {"id": "dining-main", "name": "Main Light", "roomID": "dining", "hueID": 5, "type": "main", "colour": "white"},
+    {"id": "hallway-main", "name": "Main Light", "roomID": "hallway", "hueID": 6, "type": "main", "colour": "white"},
+    {"id": "kitchen-main", "name": "Main Light", "roomID": "kitchen", "hueID": 7, "type": "main", "colour": "white"},
+    {"id": "kitchen-main", "name": "Worktop Light", "roomID": "kitchen", "hueID": 8, "type": "strip", "colour": "rgb"},
+    {"id": "utility-main", "name": "Main Light", "roomID": "utility", "hueID": 9, "type": "main", "colour": "white"},
+    {"id": "office-main", "name": "Main Light", "roomID": "office", "hueID": 10, "type": "main", "colour": "white"},
+    {"id": "bedroom-master-main", "name": "Main Light", "roomID": "bedroom-master", "hueID": 11, "type": "main", "colour": "white"},
+    {"id": "bedroom-2-main", "name": "Main Light", "roomID": "bedroom-2", "hueID": 12, "type": "main", "colour": "white"},
+    {"id": "bedroom-3-main", "name": "Main Light", "roomID": "bedroom-3", "hueID": 13, "type": "main", "colour": "white"},
+    {"id": "bathroom-main", "name": "Main Light", "roomID": "bathroom", "hueID": 14, "type": "main", "colour": "white"},
+    {"id": "landing-main", "name": "Main Light", "roomID": "landing", "hueID": 15, "type": "main", "colour": "white"}
   ]
 }

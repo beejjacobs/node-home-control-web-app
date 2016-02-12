@@ -11,6 +11,7 @@ class HomeConfig {
    * @param {string} config.hueBridgeUserName
    * @param {Object[]} config.floors
    * @param {Object[]} config.rooms
+   * @param {Object[]} config.lights
    */
   constructor(config) {
     /**
@@ -20,16 +21,127 @@ class HomeConfig {
     this.config = config;
   }
 
+  /**
+   * Get the house name
+   * @returns {string}
+   */
   getHouseName() {
     return this.config.houseName;
   }
 
+  /**
+   * Get the Hue Bridge IP address
+   * @returns {string}
+   */
   getHueIP() {
     return this.config.hueBridgeIP;
   }
 
+  /**
+   * Get the Hue Bridge User Name
+   * @returns {string}
+   */
   getHueUserName() {
     return this.config.hueBridgeUserName;
+  }
+
+  /**
+   * Get a floor's ID
+   * @param {int} floorIndex
+   * @returns {string}
+   */
+  getFloorID(floorIndex) {
+    return this.config.floors[floorIndex].id;
+  }
+
+  /**
+   * Get a floor's name
+   * @param {int} floorIndex
+   * @returns {string}
+   */
+  getFloorName(floorIndex) {
+    return this.config.floors[floorIndex].name;
+  }
+
+  /**
+   * Get a room's ID
+   * @param {int} roomIndex
+   * @returns {string} roomID
+   */
+  getRoomID(roomIndex) {
+    return this.config.rooms[roomIndex].id;
+  }
+
+  /**
+   * Get a room's name
+   * @param roomIndex
+   * @returns {*}
+   */
+  getRoomName(roomIndex) {
+    return this.config.rooms[roomIndex].name;
+  }
+
+  /**
+   * Get a room's floorID
+   * @param {int} roomIndex
+   * @returns {string}
+   */
+  getRoomFloorID(roomIndex) {
+    return this.config.rooms[roomIndex].floorID;
+  }
+
+  /**
+   * Get a light's ID
+   * @param {int} lightIndex
+   * @returns {string} lightID
+   */
+  getLightID(lightIndex) {
+    return this.config.lights[lightIndex].id;
+  }
+
+  /**
+   * Get a light's name
+   * @param {int} lightIndex
+   * @returns {string}
+   */
+  getLightName(lightIndex) {
+    return this.config.lights[lightIndex].name;
+  }
+
+  /**
+   * Get a light's roomID
+   * @param {int} lightIndex
+   * @returns {string}
+   */
+  getLightRoomID(lightIndex) {
+    return this.config.lights[lightIndex].roomID;
+  }
+
+  /**
+   * Get a light's hueID
+   * @param {int} lightIndex
+   * @returns {int} hueID
+   */
+  getLightHueID(lightIndex) {
+    return this.config.lights[lightIndex].hueID;
+  }
+
+  /**
+   * Get a light's type
+   * @param {int} lightIndex
+   * @returns {string}
+   */
+  getLightType(lightIndex) {
+    return this.config.lights[lightIndex].type;
+  }
+
+  /**
+   * Get a light's colour
+   * @param {int} lightIndex
+   * @returns {string}
+   */
+  getLightColour(lightIndex) {
+    return this.config.lights[lightIndex].colour;
   }
 
   /**
@@ -47,32 +159,14 @@ class HomeConfig {
   }
 
   /**
-   * Return room ID from room index
-   * @param {int} roomIndex
-   * @returns {string} roomID
-   */
-  getRoomID(roomIndex) {
-    return this.config.rooms[roomIndex].id;
-  }
-
-  /**
-   * Return floor ID from room index
-   * @param {int} roomIndex
-   * @returns {int}
-   */
-  getRoomFloor(roomIndex) {
-    return this.config.rooms[roomIndex].floor;
-  }
-
-  /**
    * Get an array of room indexes for the given floor
-   * @param {int} floorID
+   * @param {string} floorID
    * @returns {int[]} roomIndex
    */
   getRoomsOnFloor(floorID) {
     var rooms = [];
     for(var i = 0; i < this.getNumberOfRooms(); i++) {
-      if(this.getRoomFloor(i) == floorID) {
+      if(this.getRoomFloorID(i) == floorID) {
         rooms.push(i);
       }
     }
@@ -113,26 +207,6 @@ class HomeConfig {
   }
 
   /**
-   * Return light ID for a given room and light index
-   * @param {int} roomIndex
-   * @param {int} lightIndex
-   * @returns {string} lightID
-   */
-  getLightID(roomIndex, lightIndex) {
-    return this.config.rooms[roomIndex].lights[lightIndex].id;
-  }
-
-  /**
-   * Return hue ID for a given room and light index
-   * @param {int} roomIndex
-   * @param {int} lightIndex
-   * @returns {int} hueID
-   */
-  getLightHueID(roomIndex, lightIndex) {
-    return this.config.rooms[roomIndex].lights[lightIndex].hueID;
-  }
-
-  /**
    * Get the total number of floors
    * @returns {int}
    */
@@ -153,11 +227,7 @@ class HomeConfig {
    * @returns {int}
    */
   getNumberOfLights() {
-    var count = 0;
-    for(var i = 0; i < this.getNumberOfRooms(); i++) {
-      count += this.getNumberOfLightsByRoom(i);
-    }
-    return count;
+    return this.config.lights.length;
   }
 
   /**
@@ -181,7 +251,7 @@ class HomeConfig {
    * @returns {Number}
    */
   getNumberOfLightsByRoom(roomIndex) {
-    return this.config.rooms[roomIndex].lights.length;
+    //todo
   }
 }
 

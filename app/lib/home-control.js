@@ -52,7 +52,7 @@ class HomeControl extends HomeConfig {
   /**
    * Process 'floor' event from a client
    * @param {Object} data
-   * @param {int} data.floorID
+   * @param {string} data.floorID
    */
   processFloorEvent(data) {
 
@@ -106,7 +106,7 @@ class HomeControl extends HomeConfig {
 
   /**
    * Set all the lights on a floor on or off
-   * @param {int} floorID
+   * @param {string} floorID
    * @param {boolean} state
    */
   floorSetPower(floorID, state) {
