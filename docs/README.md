@@ -4,14 +4,17 @@
 
 * [Control](#Control)
     * [new Control(io, config)](#new_Control_new)
+    * [.config](#Control+config) : <code>Object</code>
     * [.emit(roomIndex, lightIndex, command, value)](#Control+emit)
     * [.getLightHueID(roomIndex, lightIndex)](#Control+getLightHueID) ⇒ <code>int</code>
     * [.getLightID(roomIndex, lightIndex)](#Control+getLightID) ⇒ <code>string</code>
     * [.getLightIndex(roomIndex, lightID)](#Control+getLightIndex) ⇒ <code>int</code>
-    * [.getLightsByType(roomIndex, type)](#Control+getLightsByType) ⇒ <code>Array</code>
+    * [.getLightsByType(roomIndex, type)](#Control+getLightsByType) ⇒ <code>Array.&lt;int&gt;</code>
     * [.getRoomID(roomIndex)](#Control+getRoomID) ⇒ <code>string</code>
-    * [.getRoomIndex(id)](#Control+getRoomIndex) ⇒ <code>number</code>
-    * [.getRoomsOnFloor(floor)](#Control+getRoomsOnFloor) ⇒ <code>Array</code>
+    * [.getRoomIndex(id)](#Control+getRoomIndex) ⇒ <code>int</code>
+    * [.getRoomsOnFloor(floor)](#Control+getRoomsOnFloor) ⇒ <code>Array.&lt;int&gt;</code>
+    * [.hue](#Control+hue) : <code>Object</code>
+    * [.io](#Control+io) : <code>Object</code>
     * [.lightSetBrightness(roomIndex, lightIndex, brightness)](#Control+lightSetBrightness)
     * [.lightSetColour(roomIndex, lightIndex, colour)](#Control+lightSetColour)
     * [.lightSetColourTemp(roomIndex, lightIndex, colourTemp)](#Control+lightSetColourTemp)
@@ -29,14 +32,19 @@ Control class for controlling devices from received client events.
 
 | Param | Type | Description |
 | --- | --- | --- |
-| io | <code>object</code> | socket.io instance |
-| config | <code>object</code> | config.json object |
+| io | <code>Object</code> | socket.io instance |
+| config | <code>Object</code> | config.json object |
 | config.houseName | <code>string</code> |  |
 | config.hueBridgeIP | <code>string</code> |  |
 | config.hueBridgeUserName | <code>string</code> |  |
-| config.floors | <code>Array</code> |  |
-| config.rooms | <code>Array</code> |  |
+| config.floors | <code>Array.&lt;Object&gt;</code> |  |
+| config.rooms | <code>Array.&lt;Object&gt;</code> |  |
 
+<a name="Control+config"></a>
+### control.config : <code>Object</code>
+config.json object
+
+**Kind**: instance property of <code>[Control](#Control)</code>  
 <a name="Control+emit"></a>
 ### control.emit(roomIndex, lightIndex, command, value)
 Emit a socket event and log the action
@@ -48,7 +56,7 @@ Emit a socket event and log the action
 | roomIndex | <code>int</code> | 
 | lightIndex | <code>int</code> | 
 | command | <code>string</code> | 
-| value | <code>object</code> | 
+| value | <code>Object</code> | 
 
 <a name="Control+getLightHueID"></a>
 ### control.getLightHueID(roomIndex, lightIndex) ⇒ <code>int</code>
@@ -87,11 +95,11 @@ Get the index for a light object from its ID and room
 | lightID | <code>string</code> | 
 
 <a name="Control+getLightsByType"></a>
-### control.getLightsByType(roomIndex, type) ⇒ <code>Array</code>
+### control.getLightsByType(roomIndex, type) ⇒ <code>Array.&lt;int&gt;</code>
 Get an array of light indexes of a particular type for the given room
 
 **Kind**: instance method of <code>[Control](#Control)</code>  
-**Returns**: <code>Array</code> - lightIndex  
+**Returns**: <code>Array.&lt;int&gt;</code> - lightIndex  
 
 | Param | Type |
 | --- | --- |
@@ -110,27 +118,37 @@ Return room ID from room index
 | roomIndex | <code>int</code> | 
 
 <a name="Control+getRoomIndex"></a>
-### control.getRoomIndex(id) ⇒ <code>number</code>
+### control.getRoomIndex(id) ⇒ <code>int</code>
 Get the index for a room object from its ID
 
 **Kind**: instance method of <code>[Control](#Control)</code>  
-**Returns**: <code>number</code> - roomIndex  
+**Returns**: <code>int</code> - roomIndex  
 
 | Param | Type |
 | --- | --- |
 | id | <code>string</code> | 
 
 <a name="Control+getRoomsOnFloor"></a>
-### control.getRoomsOnFloor(floor) ⇒ <code>Array</code>
+### control.getRoomsOnFloor(floor) ⇒ <code>Array.&lt;int&gt;</code>
 Get an array of room indexes for the given floor
 
 **Kind**: instance method of <code>[Control](#Control)</code>  
-**Returns**: <code>Array</code> - roomIndex  
+**Returns**: <code>Array.&lt;int&gt;</code> - roomIndex  
 
 | Param | Type |
 | --- | --- |
 | floor | <code>int</code> | 
 
+<a name="Control+hue"></a>
+### control.hue : <code>Object</code>
+node-hue-api
+
+**Kind**: instance property of <code>[Control](#Control)</code>  
+<a name="Control+io"></a>
+### control.io : <code>Object</code>
+Socket.io instance
+
+**Kind**: instance property of <code>[Control](#Control)</code>  
 <a name="Control+lightSetBrightness"></a>
 ### control.lightSetBrightness(roomIndex, lightIndex, brightness)
 Set the brightness of a light
@@ -153,7 +171,7 @@ Set the colour state of a light
 | --- | --- |
 | roomIndex | <code>int</code> | 
 | lightIndex | <code>int</code> | 
-| colour | <code>object</code> | 
+| colour | <code>Object</code> | 
 
 <a name="Control+lightSetColourTemp"></a>
 ### control.lightSetColourTemp(roomIndex, lightIndex, colourTemp)
@@ -186,11 +204,11 @@ Process 'light' event from a client
 
 | Param | Type |
 | --- | --- |
-| data | <code>object</code> | 
+| data | <code>Object</code> | 
 | data.command | <code>string</code> | 
 | data.roomID | <code>string</code> | 
 | data.lightID | <code>string</code> | 
-| data.colour | <code>object</code> | 
+| data.colour | <code>Object</code> | 
 | data.colourTemp | <code>int</code> | 
 | data.brightness | <code>int</code> | 
 
@@ -202,7 +220,7 @@ Process 'room' event from a clientToggle all lights of type main in the room
 
 | Param | Type |
 | --- | --- |
-| data | <code>object</code> | 
+| data | <code>Object</code> | 
 | data.roomID | <code>string</code> | 
 
 <a name="Control+setBrightness"></a>
@@ -225,7 +243,7 @@ Set light colour by hueID
 | Param | Type |
 | --- | --- |
 | hueID | <code>int</code> | 
-| colour | <code>object</code> | 
+| colour | <code>Object</code> | 
 
 <a name="Control+setPower"></a>
 ### control.setPower(hueID, state)

@@ -5,17 +5,29 @@ var hueAPI = require('node-hue-api').HueApi;
 class Control {
   /**
    * Control class for controlling devices from received client events.
-   * @param {object} io socket.io instance
-   * @param {object} config config.json object
+   * @param {Object} io socket.io instance
+   * @param {Object} config config.json object
    * @param {string} config.houseName
    * @param {string} config.hueBridgeIP
    * @param {string} config.hueBridgeUserName
-   * @param {Array} config.floors
-   * @param {Array} config.rooms
+   * @param {Object[]} config.floors
+   * @param {Object[]} config.rooms
    */
   constructor(io,  config) {
+    /**
+     * Socket.io instance
+     * @type {Object}
+     */
     this.io = io;
+    /**
+     * config.json object
+     * @type {Object}
+     */
     this.config = config;
+    /**
+     * node-hue-api
+     * @type {Object}
+     */
     this.hue = new hueAPI(
       this.config.hueBridgeIP,
       this.config.hueBridgeUserName
@@ -41,7 +53,7 @@ class Control {
   /**
    * Process 'room' event from a client
    * Toggle all lights of type main in the room
-   * @param {object} data
+   * @param {Object} data
    * @param {string} data.roomID
    */
   processRoomEvent(data) {
@@ -56,11 +68,11 @@ class Control {
 
   /**
    * Process 'light' event from a client
-   * @param {object} data
+   * @param {Object} data
    * @param {string} data.command
    * @param {string} data.roomID
    * @param {string} data.lightID
-   * @param {object} data.colour
+   * @param {Object} data.colour
    * @param {int} data.colourTemp
    * @param {int} data.brightness
    */
@@ -100,7 +112,7 @@ class Control {
    * Set the colour state of a light
    * @param {int} roomIndex
    * @param {int} lightIndex
-   * @param {object} colour
+   * @param {Object} colour
    */
   lightSetColour(roomIndex, lightIndex, colour) {
     var hueID = this.getLightHueID(roomIndex, lightIndex);
@@ -145,7 +157,7 @@ class Control {
   /**
    * Set light colour by hueID
    * @param {int} hueID
-   * @param {object} colour
+   * @param {Object} colour
    */
   setColour(hueID, colour) {
     //todo: set light colour
@@ -165,7 +177,7 @@ class Control {
   /**
    * Get the index for a room object from its ID
    * @param {string} id
-   * @returns {number} roomIndex
+   * @returns {int} roomIndex
    */
   getRoomIndex(id) {
     for(var i = 0; i < this.config.rooms.length; i++) {
@@ -188,7 +200,7 @@ class Control {
   /**
    * Get an array of room indexes for the given floor
    * @param {int} floor
-   * @returns {Array} roomIndex
+   * @returns {int[]} roomIndex
    */
   getRoomsOnFloor(floor) {
     var rooms = [];
@@ -204,7 +216,7 @@ class Control {
    * Get an array of light indexes of a particular type for the given room
    * @param {int} roomIndex
    * @param {string} type
-   * @returns {Array} lightIndex
+   * @returns {int[]} lightIndex
    */
   getLightsByType(roomIndex, type) {
     var lights = [];
@@ -258,7 +270,7 @@ class Control {
    * @param {int} roomIndex
    * @param {int} lightIndex
    * @param {string} command
-   * @param {object} value
+   * @param {Object} value
    */
   emit(roomIndex, lightIndex, command, value) {
     var roomID = this.getRoomID(roomIndex);
