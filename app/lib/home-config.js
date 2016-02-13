@@ -411,6 +411,79 @@ class HomeConfig {
     return lights;
   }
 
+  /**
+   * Get a light's hueID from it's lightID
+   * @param {string} lightID
+   * @returns {int}
+   */
+  getLightHueIDByID(lightID) {
+    var lightIndex = this.getLightByID(lightID);
+    return this.getLightHueID(lightIndex);
+  }
+
+  /**
+   * Get an array of hueIDs from an array of light indexes
+   * @param {int[]} lightIndexes
+   * @returns {int[]}
+   */
+  getLightsHueIDs(lightIndexes) {
+    var hueIDs = [];
+    for(var i = 0; i < lightIndexes.length; i++) {
+      hueIDs.push(this.getLightHueID(lightIndexes[i]));
+    }
+    return hueIDs;
+  }
+
+  /**
+   * Get an array of lights hueIDs by room
+   * @param {int} roomIndex
+   * @returns {int[]}
+   */
+  getLightsHueIDsByRoom(roomIndex) {
+    var lightIndexes = this.getLightsByRoom(roomIndex);
+    return this.getLightsHueIDs(lightIndexes);
+  }
+
+  /**
+   * Get an array of lights hueIDs by floor
+   * @param {int} floorIndex
+   * @returns {int[]}
+   */
+  getLightsHueIDsByFloor(floorIndex) {
+    var lightIndexes = this.getLightsByFloor(floorIndex);
+    return this.getLightsHueIDs(lightIndexes);
+  }
+
+  /**
+   * Get an array of lights hueIDs by type
+   * @param {string} type
+   * @returns {int[]}
+   */
+  getLightsHueIDsByType(type) {
+    var lightIndexes = this.getLightsByType(type);
+    return this.getLightsHueIDs(lightIndexes);
+  }
+
+  /**
+   * Get an array of lights hueIDs by colour
+   * @param {string} colour
+   * @returns {int[]}
+   */
+  getLightsHueIDsByColour(colour) {
+    var lightIndexes = this.getLightsByColour(colour);
+    return this.getLightsHueIDs(lightIndexes);
+  }
+
+  /**
+   * Get an array of lights hueIDs by room and type
+   * @param {int} roomIndex
+   * @param {string} type
+   * @returns {int[]}
+   */
+  getLightsHueIDsByRoomAndType(roomIndex, type) {
+    var lightIndexes = this.getLightsByRoomAndType(roomIndex, type);
+    return this.getLightsHueIDs(lightIndexes);
+  }
 }
 
 module.exports = HomeConfig;

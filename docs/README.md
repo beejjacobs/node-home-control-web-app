@@ -54,10 +54,22 @@ Abstraction class around the config object
     * [.getNumberOfLightsByRoom(roomIndex)](#HomeConfig+getNumberOfLightsByRoom) ⇒ <code>int</code>
     * [.getNumberOfLightsByType(type)](#HomeConfig+getNumberOfLightsByType) ⇒ <code>int</code>
     * [.getNumberOfLightsByColour(colour)](#HomeConfig+getNumberOfLightsByColour) ⇒ <code>int</code>
-    * [.getRoomsOnFloor(floorID)](#HomeConfig+getRoomsOnFloor) ⇒ <code>Array.&lt;int&gt;</code>
-    * [.getRoomIndexFromID(id)](#HomeConfig+getRoomIndexFromID) ⇒ <code>int</code>
-    * [.getLightsByType(roomIndex, type)](#HomeConfig+getLightsByType) ⇒ <code>Array.&lt;int&gt;</code>
-    * [.getLightIndex(roomIndex, lightID)](#HomeConfig+getLightIndex) ⇒ <code>int</code>
+    * [.getFloorByID(floorID)](#HomeConfig+getFloorByID) ⇒ <code>int</code>
+    * [.getRoomByID(roomID)](#HomeConfig+getRoomByID) ⇒ <code>int</code>
+    * [.getLightByID(lightID)](#HomeConfig+getLightByID) ⇒ <code>int</code>
+    * [.getRoomsByFloor(floorIndex)](#HomeConfig+getRoomsByFloor) ⇒ <code>Array.&lt;int&gt;</code>
+    * [.getLightsByRoom(roomIndex)](#HomeConfig+getLightsByRoom) ⇒ <code>Array.&lt;int&gt;</code>
+    * [.getLightsByFloor(floorIndex)](#HomeConfig+getLightsByFloor) ⇒ <code>Array.&lt;int&gt;</code>
+    * [.getLightsByType(type)](#HomeConfig+getLightsByType) ⇒ <code>Array.&lt;int&gt;</code>
+    * [.getLightsByColour(colour)](#HomeConfig+getLightsByColour) ⇒ <code>Array.&lt;int&gt;</code>
+    * [.getLightsByRoomAndType(roomIndex, type)](#HomeConfig+getLightsByRoomAndType) ⇒ <code>Array.&lt;int&gt;</code>
+    * [.getLightHueIDByID(lightID)](#HomeConfig+getLightHueIDByID) ⇒ <code>int</code>
+    * [.getLightsHueIDs(lightIndexes)](#HomeConfig+getLightsHueIDs) ⇒ <code>Array.&lt;int&gt;</code>
+    * [.getLightsHueIDsByRoom(roomIndex)](#HomeConfig+getLightsHueIDsByRoom) ⇒ <code>Array.&lt;int&gt;</code>
+    * [.getLightsHueIDsByFloor(floorIndex)](#HomeConfig+getLightsHueIDsByFloor) ⇒ <code>Array.&lt;int&gt;</code>
+    * [.getLightsHueIDsByType(type)](#HomeConfig+getLightsHueIDsByType) ⇒ <code>Array.&lt;int&gt;</code>
+    * [.getLightsHueIDsByColour(colour)](#HomeConfig+getLightsHueIDsByColour) ⇒ <code>Array.&lt;int&gt;</code>
+    * [.getLightsHueIDsByRoomAndType(roomIndex, type)](#HomeConfig+getLightsHueIDsByRoomAndType) ⇒ <code>Array.&lt;int&gt;</code>
 
 <a name="new_HomeConfig_new"></a>
 ### new HomeConfig(config)
@@ -249,8 +261,41 @@ Get the number of lights by type
 | --- | --- |
 | colour | <code>string</code> | 
 
-<a name="HomeConfig+getRoomsOnFloor"></a>
-### homeConfig.getRoomsOnFloor(floorID) ⇒ <code>Array.&lt;int&gt;</code>
+<a name="HomeConfig+getFloorByID"></a>
+### homeConfig.getFloorByID(floorID) ⇒ <code>int</code>
+Get the index for a floor object from its ID
+
+**Kind**: instance method of <code>[HomeConfig](#HomeConfig)</code>  
+**Returns**: <code>int</code> - floorIndex -1 if not found  
+
+| Param | Type |
+| --- | --- |
+| floorID | <code>string</code> | 
+
+<a name="HomeConfig+getRoomByID"></a>
+### homeConfig.getRoomByID(roomID) ⇒ <code>int</code>
+Get the index for a room object from its ID
+
+**Kind**: instance method of <code>[HomeConfig](#HomeConfig)</code>  
+**Returns**: <code>int</code> - roomIndex -1 if not found  
+
+| Param | Type |
+| --- | --- |
+| roomID | <code>string</code> | 
+
+<a name="HomeConfig+getLightByID"></a>
+### homeConfig.getLightByID(lightID) ⇒ <code>int</code>
+Get the index for a light object from its ID and room
+
+**Kind**: instance method of <code>[HomeConfig](#HomeConfig)</code>  
+**Returns**: <code>int</code> - lightIndex -1 if not found  
+
+| Param | Type |
+| --- | --- |
+| lightID | <code>string</code> | 
+
+<a name="HomeConfig+getRoomsByFloor"></a>
+### homeConfig.getRoomsByFloor(floorIndex) ⇒ <code>Array.&lt;int&gt;</code>
 Get an array of room indexes for the given floor
 
 **Kind**: instance method of <code>[HomeConfig](#HomeConfig)</code>  
@@ -258,22 +303,51 @@ Get an array of room indexes for the given floor
 
 | Param | Type |
 | --- | --- |
-| floorID | <code>string</code> | 
+| floorIndex | <code>int</code> | 
 
-<a name="HomeConfig+getRoomIndexFromID"></a>
-### homeConfig.getRoomIndexFromID(id) ⇒ <code>int</code>
-Get the index for a room object from its ID
+<a name="HomeConfig+getLightsByRoom"></a>
+### homeConfig.getLightsByRoom(roomIndex) ⇒ <code>Array.&lt;int&gt;</code>
+Get an array of light indexes for the given room
 
 **Kind**: instance method of <code>[HomeConfig](#HomeConfig)</code>  
-**Returns**: <code>int</code> - roomIndex  
 
 | Param | Type |
 | --- | --- |
-| id | <code>string</code> | 
+| roomIndex | <code>int</code> | 
+
+<a name="HomeConfig+getLightsByFloor"></a>
+### homeConfig.getLightsByFloor(floorIndex) ⇒ <code>Array.&lt;int&gt;</code>
+Get an array of light indexes for the given floors
+
+**Kind**: instance method of <code>[HomeConfig](#HomeConfig)</code>  
+
+| Param | Type |
+| --- | --- |
+| floorIndex | <code>int</code> | 
 
 <a name="HomeConfig+getLightsByType"></a>
-### homeConfig.getLightsByType(roomIndex, type) ⇒ <code>Array.&lt;int&gt;</code>
-Get an array of light indexes of a particular type for the given room
+### homeConfig.getLightsByType(type) ⇒ <code>Array.&lt;int&gt;</code>
+Get an array of light indexes of the given type
+
+**Kind**: instance method of <code>[HomeConfig](#HomeConfig)</code>  
+
+| Param | Type |
+| --- | --- |
+| type | <code>string</code> | 
+
+<a name="HomeConfig+getLightsByColour"></a>
+### homeConfig.getLightsByColour(colour) ⇒ <code>Array.&lt;int&gt;</code>
+Get an array of light indexes of the given colour
+
+**Kind**: instance method of <code>[HomeConfig](#HomeConfig)</code>  
+
+| Param | Type |
+| --- | --- |
+| colour | <code>string</code> | 
+
+<a name="HomeConfig+getLightsByRoomAndType"></a>
+### homeConfig.getLightsByRoomAndType(roomIndex, type) ⇒ <code>Array.&lt;int&gt;</code>
+Get an array of light indexes of the given type in the given room
 
 **Kind**: instance method of <code>[HomeConfig](#HomeConfig)</code>  
 **Returns**: <code>Array.&lt;int&gt;</code> - lightIndex  
@@ -283,17 +357,76 @@ Get an array of light indexes of a particular type for the given room
 | roomIndex | <code>int</code> | 
 | type | <code>string</code> | 
 
-<a name="HomeConfig+getLightIndex"></a>
-### homeConfig.getLightIndex(roomIndex, lightID) ⇒ <code>int</code>
-Get the index for a light object from its ID and room
+<a name="HomeConfig+getLightHueIDByID"></a>
+### homeConfig.getLightHueIDByID(lightID) ⇒ <code>int</code>
+Get a light's hueID from it's lightID
 
 **Kind**: instance method of <code>[HomeConfig](#HomeConfig)</code>  
-**Returns**: <code>int</code> - lightIndex  
+
+| Param | Type |
+| --- | --- |
+| lightID | <code>string</code> | 
+
+<a name="HomeConfig+getLightsHueIDs"></a>
+### homeConfig.getLightsHueIDs(lightIndexes) ⇒ <code>Array.&lt;int&gt;</code>
+Get an array of hueIDs from an array of light indexes
+
+**Kind**: instance method of <code>[HomeConfig](#HomeConfig)</code>  
+
+| Param | Type |
+| --- | --- |
+| lightIndexes | <code>Array.&lt;int&gt;</code> | 
+
+<a name="HomeConfig+getLightsHueIDsByRoom"></a>
+### homeConfig.getLightsHueIDsByRoom(roomIndex) ⇒ <code>Array.&lt;int&gt;</code>
+Get an array of lights hueIDs by room
+
+**Kind**: instance method of <code>[HomeConfig](#HomeConfig)</code>  
 
 | Param | Type |
 | --- | --- |
 | roomIndex | <code>int</code> | 
-| lightID | <code>string</code> | 
+
+<a name="HomeConfig+getLightsHueIDsByFloor"></a>
+### homeConfig.getLightsHueIDsByFloor(floorIndex) ⇒ <code>Array.&lt;int&gt;</code>
+Get an array of lights hueIDs by floor
+
+**Kind**: instance method of <code>[HomeConfig](#HomeConfig)</code>  
+
+| Param | Type |
+| --- | --- |
+| floorIndex | <code>int</code> | 
+
+<a name="HomeConfig+getLightsHueIDsByType"></a>
+### homeConfig.getLightsHueIDsByType(type) ⇒ <code>Array.&lt;int&gt;</code>
+Get an array of lights hueIDs by type
+
+**Kind**: instance method of <code>[HomeConfig](#HomeConfig)</code>  
+
+| Param | Type |
+| --- | --- |
+| type | <code>string</code> | 
+
+<a name="HomeConfig+getLightsHueIDsByColour"></a>
+### homeConfig.getLightsHueIDsByColour(colour) ⇒ <code>Array.&lt;int&gt;</code>
+Get an array of lights hueIDs by colour
+
+**Kind**: instance method of <code>[HomeConfig](#HomeConfig)</code>  
+
+| Param | Type |
+| --- | --- |
+| colour | <code>string</code> | 
+
+<a name="HomeConfig+getLightsHueIDsByRoomAndType"></a>
+### homeConfig.getLightsHueIDsByRoomAndType(roomIndex, type) ⇒ <code>Array.&lt;int&gt;</code>
+Get an array of lights hueIDs by room and type
+
+**Kind**: instance method of <code>[HomeConfig](#HomeConfig)</code>  
+
+| Param | Type |
+| --- | --- |
+| roomIndex | <code>int</code> | 
+| type | <code>string</code> | 
 
 <a name="HomeControl"></a>
 ## HomeControl ⇐ <code>[HomeConfig](#HomeConfig)</code>
@@ -337,10 +470,22 @@ Get the index for a light object from its ID and room
     * [.getNumberOfLightsByRoom(roomIndex)](#HomeConfig+getNumberOfLightsByRoom) ⇒ <code>int</code>
     * [.getNumberOfLightsByType(type)](#HomeConfig+getNumberOfLightsByType) ⇒ <code>int</code>
     * [.getNumberOfLightsByColour(colour)](#HomeConfig+getNumberOfLightsByColour) ⇒ <code>int</code>
-    * [.getRoomsOnFloor(floorID)](#HomeConfig+getRoomsOnFloor) ⇒ <code>Array.&lt;int&gt;</code>
-    * [.getRoomIndexFromID(id)](#HomeConfig+getRoomIndexFromID) ⇒ <code>int</code>
-    * [.getLightsByType(roomIndex, type)](#HomeConfig+getLightsByType) ⇒ <code>Array.&lt;int&gt;</code>
-    * [.getLightIndex(roomIndex, lightID)](#HomeConfig+getLightIndex) ⇒ <code>int</code>
+    * [.getFloorByID(floorID)](#HomeConfig+getFloorByID) ⇒ <code>int</code>
+    * [.getRoomByID(roomID)](#HomeConfig+getRoomByID) ⇒ <code>int</code>
+    * [.getLightByID(lightID)](#HomeConfig+getLightByID) ⇒ <code>int</code>
+    * [.getRoomsByFloor(floorIndex)](#HomeConfig+getRoomsByFloor) ⇒ <code>Array.&lt;int&gt;</code>
+    * [.getLightsByRoom(roomIndex)](#HomeConfig+getLightsByRoom) ⇒ <code>Array.&lt;int&gt;</code>
+    * [.getLightsByFloor(floorIndex)](#HomeConfig+getLightsByFloor) ⇒ <code>Array.&lt;int&gt;</code>
+    * [.getLightsByType(type)](#HomeConfig+getLightsByType) ⇒ <code>Array.&lt;int&gt;</code>
+    * [.getLightsByColour(colour)](#HomeConfig+getLightsByColour) ⇒ <code>Array.&lt;int&gt;</code>
+    * [.getLightsByRoomAndType(roomIndex, type)](#HomeConfig+getLightsByRoomAndType) ⇒ <code>Array.&lt;int&gt;</code>
+    * [.getLightHueIDByID(lightID)](#HomeConfig+getLightHueIDByID) ⇒ <code>int</code>
+    * [.getLightsHueIDs(lightIndexes)](#HomeConfig+getLightsHueIDs) ⇒ <code>Array.&lt;int&gt;</code>
+    * [.getLightsHueIDsByRoom(roomIndex)](#HomeConfig+getLightsHueIDsByRoom) ⇒ <code>Array.&lt;int&gt;</code>
+    * [.getLightsHueIDsByFloor(floorIndex)](#HomeConfig+getLightsHueIDsByFloor) ⇒ <code>Array.&lt;int&gt;</code>
+    * [.getLightsHueIDsByType(type)](#HomeConfig+getLightsHueIDsByType) ⇒ <code>Array.&lt;int&gt;</code>
+    * [.getLightsHueIDsByColour(colour)](#HomeConfig+getLightsHueIDsByColour) ⇒ <code>Array.&lt;int&gt;</code>
+    * [.getLightsHueIDsByRoomAndType(roomIndex, type)](#HomeConfig+getLightsHueIDsByRoomAndType) ⇒ <code>Array.&lt;int&gt;</code>
 
 <a name="new_HomeControl_new"></a>
 ### new HomeControl(io, config)
@@ -687,8 +832,41 @@ Get the number of lights by type
 | --- | --- |
 | colour | <code>string</code> | 
 
-<a name="HomeConfig+getRoomsOnFloor"></a>
-### homeControl.getRoomsOnFloor(floorID) ⇒ <code>Array.&lt;int&gt;</code>
+<a name="HomeConfig+getFloorByID"></a>
+### homeControl.getFloorByID(floorID) ⇒ <code>int</code>
+Get the index for a floor object from its ID
+
+**Kind**: instance method of <code>[HomeControl](#HomeControl)</code>  
+**Returns**: <code>int</code> - floorIndex -1 if not found  
+
+| Param | Type |
+| --- | --- |
+| floorID | <code>string</code> | 
+
+<a name="HomeConfig+getRoomByID"></a>
+### homeControl.getRoomByID(roomID) ⇒ <code>int</code>
+Get the index for a room object from its ID
+
+**Kind**: instance method of <code>[HomeControl](#HomeControl)</code>  
+**Returns**: <code>int</code> - roomIndex -1 if not found  
+
+| Param | Type |
+| --- | --- |
+| roomID | <code>string</code> | 
+
+<a name="HomeConfig+getLightByID"></a>
+### homeControl.getLightByID(lightID) ⇒ <code>int</code>
+Get the index for a light object from its ID and room
+
+**Kind**: instance method of <code>[HomeControl](#HomeControl)</code>  
+**Returns**: <code>int</code> - lightIndex -1 if not found  
+
+| Param | Type |
+| --- | --- |
+| lightID | <code>string</code> | 
+
+<a name="HomeConfig+getRoomsByFloor"></a>
+### homeControl.getRoomsByFloor(floorIndex) ⇒ <code>Array.&lt;int&gt;</code>
 Get an array of room indexes for the given floor
 
 **Kind**: instance method of <code>[HomeControl](#HomeControl)</code>  
@@ -696,22 +874,51 @@ Get an array of room indexes for the given floor
 
 | Param | Type |
 | --- | --- |
-| floorID | <code>string</code> | 
+| floorIndex | <code>int</code> | 
 
-<a name="HomeConfig+getRoomIndexFromID"></a>
-### homeControl.getRoomIndexFromID(id) ⇒ <code>int</code>
-Get the index for a room object from its ID
+<a name="HomeConfig+getLightsByRoom"></a>
+### homeControl.getLightsByRoom(roomIndex) ⇒ <code>Array.&lt;int&gt;</code>
+Get an array of light indexes for the given room
 
 **Kind**: instance method of <code>[HomeControl](#HomeControl)</code>  
-**Returns**: <code>int</code> - roomIndex  
 
 | Param | Type |
 | --- | --- |
-| id | <code>string</code> | 
+| roomIndex | <code>int</code> | 
+
+<a name="HomeConfig+getLightsByFloor"></a>
+### homeControl.getLightsByFloor(floorIndex) ⇒ <code>Array.&lt;int&gt;</code>
+Get an array of light indexes for the given floors
+
+**Kind**: instance method of <code>[HomeControl](#HomeControl)</code>  
+
+| Param | Type |
+| --- | --- |
+| floorIndex | <code>int</code> | 
 
 <a name="HomeConfig+getLightsByType"></a>
-### homeControl.getLightsByType(roomIndex, type) ⇒ <code>Array.&lt;int&gt;</code>
-Get an array of light indexes of a particular type for the given room
+### homeControl.getLightsByType(type) ⇒ <code>Array.&lt;int&gt;</code>
+Get an array of light indexes of the given type
+
+**Kind**: instance method of <code>[HomeControl](#HomeControl)</code>  
+
+| Param | Type |
+| --- | --- |
+| type | <code>string</code> | 
+
+<a name="HomeConfig+getLightsByColour"></a>
+### homeControl.getLightsByColour(colour) ⇒ <code>Array.&lt;int&gt;</code>
+Get an array of light indexes of the given colour
+
+**Kind**: instance method of <code>[HomeControl](#HomeControl)</code>  
+
+| Param | Type |
+| --- | --- |
+| colour | <code>string</code> | 
+
+<a name="HomeConfig+getLightsByRoomAndType"></a>
+### homeControl.getLightsByRoomAndType(roomIndex, type) ⇒ <code>Array.&lt;int&gt;</code>
+Get an array of light indexes of the given type in the given room
 
 **Kind**: instance method of <code>[HomeControl](#HomeControl)</code>  
 **Returns**: <code>Array.&lt;int&gt;</code> - lightIndex  
@@ -721,17 +928,76 @@ Get an array of light indexes of a particular type for the given room
 | roomIndex | <code>int</code> | 
 | type | <code>string</code> | 
 
-<a name="HomeConfig+getLightIndex"></a>
-### homeControl.getLightIndex(roomIndex, lightID) ⇒ <code>int</code>
-Get the index for a light object from its ID and room
+<a name="HomeConfig+getLightHueIDByID"></a>
+### homeControl.getLightHueIDByID(lightID) ⇒ <code>int</code>
+Get a light's hueID from it's lightID
 
 **Kind**: instance method of <code>[HomeControl](#HomeControl)</code>  
-**Returns**: <code>int</code> - lightIndex  
+
+| Param | Type |
+| --- | --- |
+| lightID | <code>string</code> | 
+
+<a name="HomeConfig+getLightsHueIDs"></a>
+### homeControl.getLightsHueIDs(lightIndexes) ⇒ <code>Array.&lt;int&gt;</code>
+Get an array of hueIDs from an array of light indexes
+
+**Kind**: instance method of <code>[HomeControl](#HomeControl)</code>  
+
+| Param | Type |
+| --- | --- |
+| lightIndexes | <code>Array.&lt;int&gt;</code> | 
+
+<a name="HomeConfig+getLightsHueIDsByRoom"></a>
+### homeControl.getLightsHueIDsByRoom(roomIndex) ⇒ <code>Array.&lt;int&gt;</code>
+Get an array of lights hueIDs by room
+
+**Kind**: instance method of <code>[HomeControl](#HomeControl)</code>  
 
 | Param | Type |
 | --- | --- |
 | roomIndex | <code>int</code> | 
-| lightID | <code>string</code> | 
+
+<a name="HomeConfig+getLightsHueIDsByFloor"></a>
+### homeControl.getLightsHueIDsByFloor(floorIndex) ⇒ <code>Array.&lt;int&gt;</code>
+Get an array of lights hueIDs by floor
+
+**Kind**: instance method of <code>[HomeControl](#HomeControl)</code>  
+
+| Param | Type |
+| --- | --- |
+| floorIndex | <code>int</code> | 
+
+<a name="HomeConfig+getLightsHueIDsByType"></a>
+### homeControl.getLightsHueIDsByType(type) ⇒ <code>Array.&lt;int&gt;</code>
+Get an array of lights hueIDs by type
+
+**Kind**: instance method of <code>[HomeControl](#HomeControl)</code>  
+
+| Param | Type |
+| --- | --- |
+| type | <code>string</code> | 
+
+<a name="HomeConfig+getLightsHueIDsByColour"></a>
+### homeControl.getLightsHueIDsByColour(colour) ⇒ <code>Array.&lt;int&gt;</code>
+Get an array of lights hueIDs by colour
+
+**Kind**: instance method of <code>[HomeControl](#HomeControl)</code>  
+
+| Param | Type |
+| --- | --- |
+| colour | <code>string</code> | 
+
+<a name="HomeConfig+getLightsHueIDsByRoomAndType"></a>
+### homeControl.getLightsHueIDsByRoomAndType(roomIndex, type) ⇒ <code>Array.&lt;int&gt;</code>
+Get an array of lights hueIDs by room and type
+
+**Kind**: instance method of <code>[HomeControl](#HomeControl)</code>  
+
+| Param | Type |
+| --- | --- |
+| roomIndex | <code>int</code> | 
+| type | <code>string</code> | 
 
 <a name="Floor"></a>
 ## Floor : <code>Object</code>
