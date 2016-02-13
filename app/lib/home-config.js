@@ -262,12 +262,51 @@ class HomeConfig {
   }
 
   /**
+   * Get the index for a room object from its ID
+   * @param {string} roomID
+   * @returns {int} roomIndex -1 if not found
+   */
+  getRoomByID(roomID) {
+    var found = false;
+    for(var i = 0; i < this.getNumberOfRooms(); i++) {
+      if(this.getRoomID(i) == roomID) {
+        found = true;
+        break;
+      }
+    }
+    if(!found) {
+      i = -1;
+    }
+    return i;
+  }
+
+  /**
+   * Get the index for a light object from its ID and room
+   * @param {string} lightID
+   * @returns {int} lightIndex -1 if not found
+   */
+  getLightByID(lightID) {
+    var found = false;
+    for(var i = 0; i < this.getNumberOfLights(); i++) {
+      if(this.getLightID(i) == lightID) {
+        found = true;
+        break;
+      }
+    }
+    if(!found) {
+      i = -1;
+    }
+    return i;
+  }
+
+  /**
    * Get an array of room indexes for the given floor
-   * @param {string} floorID
+   * @param {int} floorIndex
    * @returns {int[]} roomIndex
    */
-  getRoomsOnFloor(floorID) {
+  getRoomsByFloor(floorIndex) {
     var rooms = [];
+    var floorID = this.getFloorID(floorIndex);
     for(var i = 0; i < this.getNumberOfRooms(); i++) {
       if(this.getRoomFloorID(i) == floorID) {
         rooms.push(i);
@@ -277,30 +316,15 @@ class HomeConfig {
   }
 
   /**
-   * Get the index for a room object from its ID
-   * @param {string} id
-   * @returns {int} roomIndex
-   */
-  getRoomIndexFromID(id) {
-    for(var i = 0; i < this.getNumberOfRooms(); i++) {
-      if(this.getRoomID(i) == id) {
-        break;
-      }
-    }
-    return i;
-  }
-
-  /**
-   * Get an array of light indexes of a particular type for the given room
+   * Get an array of light indexes for the given room
    * @param {int} roomIndex
-   * @param {string} type
-   * @returns {int[]} lightIndex
+   * @returns {int[]}
    */
-  getLightsByType(roomIndex, type) {
+  getLightsByRoom(roomIndex) {
     var lights = [];
-    var roomLights = this.config.rooms[roomIndex].lights;
-    for(var i = 0; i < this.getNumberOfLightsByRoom(roomIndex); i++) {
-      if(roomLights[i].type == type) {
+    var roomID = this.getRoomID(roomIndex);
+    for(var i = 0; i < this.getNumberOfLights(); i++) {
+      if(this.getLightRoomID(i) == roomID) {
         lights.push(i);
       }
     }
@@ -308,20 +332,66 @@ class HomeConfig {
   }
 
   /**
-   * Get the index for a light object from its ID and room
-   * @param {int} roomIndex
-   * @param {string} lightID
-   * @returns {int} lightIndex
+   * Get an array of light indexes for the given floors
+   * @param {int} floorIndex
+   * @returns {int[]}
    */
-  getLightIndex(roomIndex, lightID) {
-    var roomLights = this.config.rooms[roomIndex].lights;
-    for(var i = 0; i < roomLights.length; i++) {
-      if(roomLights[i].id == lightID) {
-        break;
+  getLightsByFloor(floorIndex) {
+    var rooms = this.getRoomsByFloor(floorIndex);
+    var lights = [];
+    for(var i = 0; i < rooms.length; i++) {
+      lights = lights.concat(this.getLightsByRoom(rooms[i]));
+    }
+    return lights;
+  }
+
+  /**
+   * Get an array of light indexes of the given type
+   * @param {string} type
+   * @returns {int[]}
+   */
+  getLightsByType(type) {
+    var lights = [];
+    for(var i = 0; i < this.getNumberOfLights(); i++) {
+      if(this.getLightType(i) == type) {
+        lights.push(i);
       }
     }
-    return i;
+    return lights;
   }
+
+  /**
+   * Get an array of light indexes of the given colour
+   * @param {string} colour
+   * @returns {int[]}
+   */
+  getLightsByColour(colour) {
+    var lights = [];
+    for(var i = 0; i < this.getNumberOfLights(); i++) {
+      if(this.getLightColour(i) == colour) {
+        lights.push(i);
+      }
+    }
+    return lights;
+  }
+
+  /**
+   * Get an array of light indexes of the given type in the given room
+   * @param {int} roomIndex
+   * @param {string} type
+   * @returns {int[]} lightIndex
+   */
+  getLightsByRoomAndType(roomIndex, type) {
+    var lights = [];
+    var roomLights = this.getLightsByRoom(roomIndex);
+    for(var i = 0; i < roomLights.length; i++) {
+      if(this.getLightType(roomLights[i]) == type) {
+        lights.push(roomLights[i]);
+      }
+    }
+    return lights;
+  }
+
 }
 
 module.exports = HomeConfig;
