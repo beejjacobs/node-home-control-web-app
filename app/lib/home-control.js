@@ -66,11 +66,11 @@ class HomeControl extends HomeConfig {
    */
   processRoomEvent(data) {
     //todo: check data.roomID exists
-    var roomIndex = this.getRoomIndex(data.roomID);
-    var lights = this.getLightsByType(roomIndex, 'main');
+    var roomIndex = this.getRoomByID(data.roomID);
+    var lights = this.getLightsByRoomAndType(roomIndex, 'main');
 
     for(var i = 0; i < lights.length; i++) {
-      this.lightTogglePower(roomIndex, lights[i]);
+      this.lightTogglePower(lights[i]);
     }
   }
 
@@ -86,20 +86,19 @@ class HomeControl extends HomeConfig {
    */
   processLightEvent(data) {
     //todo: check objects exist
-    var roomIndex = this.getRoomIndex(data.roomID);
-    var lightIndex = this.getLightIndex(roomIndex, data.lightID);
+    var lightIndex = this.getLightByID(data.lightID);
     switch(data.command) {
       case 'power':
-        this.lightTogglePower(roomIndex, lightIndex);
+        this.lightTogglePower(lightIndex);
         break;
       case 'colour':
-        this.lightSetColour(roomIndex, lightIndex, data.colour);
+        this.lightSetColour(lightIndex, data.colour);
         break;
       case 'colourTemp':
-        this.lightSetColourTemp(roomIndex, lightIndex, data.colourTemp);
+        this.lightSetColourTemp(lightIndex, data.colourTemp);
         break;
       case 'brightness':
-        this.lightSetBrightness(roomIndex, lightIndex, data.brightness);
+        this.lightSetBrightness(lightIndex, data.brightness);
         break;
     }
   }
@@ -110,13 +109,11 @@ class HomeControl extends HomeConfig {
    * @param {boolean} state
    */
   floorSetPower(floorID, state) {
-    var roomIndexes = this.getRoomsOnFloor(data.floorID);
-    var hueID = null;
-    for(let i = 0; i < rooms.length; i++) {
-      for(let j = 0; j < this.getNumberOfLightsByRoom(roomIndexes[i]); j++) {
-        hueID = this.getLightHueID(roomIndexes[i],  j);
-        this.setPower(hueID, state);
-      }
+    var floorIndex = this.getFloorByID(floorID);
+    var hueIDs = this.getLightsHueIDsByFloor(floorIndex);
+
+    for(var i = 0; i < hueIDs.length; i++) {
+      this.setPower(hueIDs[i], state);
     }
   }
 
@@ -125,47 +122,44 @@ class HomeControl extends HomeConfig {
    * @param {int} roomIndex
    * @param {int} lightIndex
    */
-  lightTogglePower(roomIndex, lightIndex) {
-    var hueID = this.getLightHueID(roomIndex, lightIndex);
+  lightTogglePower(lightIndex) {
+    var hueID = this.getLightHueID(lightIndex);
     //todo: get light state
     this.setPower(hueID, true);
-    this.emit(roomIndex, lightIndex, 'power', true);
+    this.emit(lightIndex, 'power', true);
   }
 
   /**
    * Set the colour state of a light
-   * @param {int} roomIndex
    * @param {int} lightIndex
    * @param {Object} colour
    */
-  lightSetColour(roomIndex, lightIndex, colour) {
-    var hueID = this.getLightHueID(roomIndex, lightIndex);
+  lightSetColour(lightIndex, colour) {
+    var hueID = this.getLightHueID(lightIndex);
     this.setColour(hueID, colour);
-    this.emit(roomIndex, lightIndex, 'colour', colour);
+    this.emit(lightIndex, 'colour', colour);
   }
 
   /**
    * Set the colour temperature of a light
-   * @param {int} roomIndex
    * @param {int} lightIndex
    * @param {int} colourTemp
    */
-  lightSetColourTemp(roomIndex, lightIndex, colourTemp) {
-    var hueID = this.getLightHueID(roomIndex, lightIndex);
+  lightSetColourTemp(lightIndex, colourTemp) {
+    var hueID = this.getLightHueID(lightIndex);
     this.setColour(hueID, colourTemp);
-    this.emit(roomIndex, lightIndex, 'colourTemp', colourTemp);
+    this.emit(lightIndex, 'colourTemp', colourTemp);
   }
 
   /**
    * Set the brightness of a light
-   * @param {int} roomIndex
    * @param {int} lightIndex
    * @param {int} brightness
    */
-  lightSetBrightness(roomIndex, lightIndex, brightness) {
-    var hueID = this.getLightHueID(roomIndex, lightIndex);
+  lightSetBrightness(lightIndex, brightness) {
+    var hueID = this.getLightHueID(lightIndex);
     this.setBrightness(hueID, brightness);
-    this.emit(roomIndex, lightIndex, 'brightness', brightness);
+    this.emit(lightIndex, 'brightness', brightness);
   }
 
   /**
@@ -200,15 +194,15 @@ class HomeControl extends HomeConfig {
 
   /**
    * Emit a socket event and log the action
-   * @param {int} roomIndex
    * @param {int} lightIndex
    * @param {string} command
    * @param {Object} value
    */
-  emit(roomIndex, lightIndex, command, value) {
-    var roomID = this.getRoomID(roomIndex);
-    var lightID = this.getLightID(roomIndex, lightIndex);
-    var hueID = this.getLightHueID(roomIndex, lightIndex);
+  emit(lightIndex, command, value) {
+    var roomID = this.getLightRoomID(lightIndex);
+    var roomIndex = this.getRoomByID(roomID);
+    var lightID = this.getLightID(lightIndex);
+    var hueID = this.getLightHueID(lightIndex);
 
     console.info({roomID, roomIndex, lightID, lightIndex, hueID, command, value});
     this.io.sockets.emit('light', {roomID, lightID, command, value});
