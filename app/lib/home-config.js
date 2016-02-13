@@ -1,25 +1,40 @@
 'use strict';
 
 /**
+ * Custom object to describe floors
+ * @typedef {Object} Floor
+ * @property {string} id
+ * @property {string} name
+ */
+
+/**
+ * Custom object to describe rooms
+ * @typedef {Object} Room
+ * @property {string} id
+ * @property {string} name
+ * @property {string} floorID
+ */
+
+/**
+ * Custom object to describe lights
+ * @typedef {Object} Light
+ * @property {string} id
+ * @property {string} name
+ * @property {string} roomID
+ * @property {int} hueID
+ * @property {string} type
+ * @property {string} colour
+ */
+
+/**
  * Config object matches config.json file
- * @typedef {object} config
+ * @typedef {object} Config
  * @property {string} houseName
  * @property {string} hueBridgeIP
  * @property {string} hueBridgeUserName
- * @property {Object[]} floors
- * @property {string} floors[].id
- * @property {string} floors[].name
- * @property {Object[]} rooms
- * @property {string} rooms[].id
- * @property {string} rooms[].name
- * @property {string} rooms[].floorID
- * @property {Object[]} lights
- * @property {string} lights[].id
- * @property {string} lights[].name
- * @property {string} lights[].roomID
- * @property {int} lights[].hueID
- * @property {string} lights[].type
- * @property {string} lights[].colour
+ * @property {Floor[]} floors
+ * @property {Room[]} rooms
+ * @property {Light[]} lights
  */
 
 /**
@@ -27,11 +42,12 @@
 */
 class HomeConfig {
   /**
-   * @param {config} config
+   * @param {Config} config
    */
   constructor(config) {
     /**
-     * @type {config}
+     * @type {Config}
+     * @private
      */
     this.config = config;
   }
@@ -265,7 +281,7 @@ class HomeConfig {
    * @param {string} id
    * @returns {int} roomIndex
    */
-  getRoomIndex(id) {
+  getRoomIndexFromID(id) {
     for(var i = 0; i < this.getNumberOfRooms(); i++) {
       if(this.getRoomID(i) == id) {
         break;
