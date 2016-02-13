@@ -262,6 +262,25 @@ class HomeConfig {
   }
 
   /**
+   * Get the index for a floor object from its ID
+   * @param {string} floorID
+   * @returns {int} floorIndex -1 if not found
+   */
+  getFloorByID(floorID) {
+    var found = false;
+    for(var i = 0; i < this.getNumberOfFloors(); i++) {
+      if(this.getFloorID(i) == floorID) {
+        found = true;
+        break;
+      }
+    }
+    if(!found) {
+      i = -1;
+    }
+    return i;
+  }
+
+  /**
    * Get the index for a room object from its ID
    * @param {string} roomID
    * @returns {int} roomIndex -1 if not found
