@@ -5,7 +5,8 @@
 <dd><p>Abstraction class around the config object</p>
 </dd>
 <dt><a href="#HomeControl">HomeControl</a> ⇐ <code><a href="#HomeConfig">HomeConfig</a></code></dt>
-<dd></dd>
+<dd><p>Act on received events and control lights</p>
+</dd>
 </dl>
 
 ## Typedefs
@@ -430,6 +431,8 @@ Get an array of lights hueIDs by room and type
 
 <a name="HomeControl"></a>
 ## HomeControl ⇐ <code>[HomeConfig](#HomeConfig)</code>
+Act on received events and control lights
+
 **Kind**: global class  
 **Extends:** <code>[HomeConfig](#HomeConfig)</code>  
 
@@ -437,18 +440,20 @@ Get an array of lights hueIDs by room and type
     * [new HomeControl(io, config)](#new_HomeControl_new)
     * [.io](#HomeControl+io) : <code>Object</code>
     * [.hue](#HomeControl+hue) : <code>Object</code>
+    * [.clientConnected()](#HomeControl+clientConnected)
     * [.processFloorEvent(data)](#HomeControl+processFloorEvent)
     * [.processRoomEvent(data)](#HomeControl+processRoomEvent)
     * [.processLightEvent(data)](#HomeControl+processLightEvent)
     * [.floorSetPower(floorID, state)](#HomeControl+floorSetPower)
-    * [.lightTogglePower(roomIndex, lightIndex)](#HomeControl+lightTogglePower)
-    * [.lightSetColour(roomIndex, lightIndex, colour)](#HomeControl+lightSetColour)
-    * [.lightSetColourTemp(roomIndex, lightIndex, colourTemp)](#HomeControl+lightSetColourTemp)
-    * [.lightSetBrightness(roomIndex, lightIndex, brightness)](#HomeControl+lightSetBrightness)
+    * [.lightTogglePower(lightIndex)](#HomeControl+lightTogglePower)
+    * [.lightSetColour(lightIndex, colour)](#HomeControl+lightSetColour)
+    * [.lightSetColourTemp(lightIndex, colourTemp)](#HomeControl+lightSetColourTemp)
+    * [.lightSetBrightness(lightIndex, brightness)](#HomeControl+lightSetBrightness)
     * [.setPower(hueID, state)](#HomeControl+setPower)
     * [.setColour(hueID, colour)](#HomeControl+setColour)
     * [.setBrightness(hueID, brightness)](#HomeControl+setBrightness)
-    * [.emit(roomIndex, lightIndex, command, value)](#HomeControl+emit)
+    * [.emitHouseName(houseName)](#HomeControl+emitHouseName)
+    * [.emitLight(lightIndex, command, value)](#HomeControl+emitLight)
     * [.getHouseName()](#HomeConfig+getHouseName) ⇒ <code>string</code>
     * [.getHueIP()](#HomeConfig+getHueIP) ⇒ <code>string</code>
     * [.getHueUserName()](#HomeConfig+getHueUserName) ⇒ <code>string</code>
@@ -507,6 +512,11 @@ Socket.io instance
 node-hue-api
 
 **Kind**: instance property of <code>[HomeControl](#HomeControl)</code>  
+<a name="HomeControl+clientConnected"></a>
+### homeControl.clientConnected()
+Client has connected, send the relevant data to initialise the client
+
+**Kind**: instance method of <code>[HomeControl](#HomeControl)</code>  
 <a name="HomeControl+processFloorEvent"></a>
 ### homeControl.processFloorEvent(data)
 Process 'floor' event from a client
@@ -557,49 +567,45 @@ Set all the lights on a floor on or off
 | state | <code>boolean</code> | 
 
 <a name="HomeControl+lightTogglePower"></a>
-### homeControl.lightTogglePower(roomIndex, lightIndex)
+### homeControl.lightTogglePower(lightIndex)
 Toggle the power state for a given light
 
 **Kind**: instance method of <code>[HomeControl](#HomeControl)</code>  
 
 | Param | Type |
 | --- | --- |
-| roomIndex | <code>int</code> | 
 | lightIndex | <code>int</code> | 
 
 <a name="HomeControl+lightSetColour"></a>
-### homeControl.lightSetColour(roomIndex, lightIndex, colour)
+### homeControl.lightSetColour(lightIndex, colour)
 Set the colour state of a light
 
 **Kind**: instance method of <code>[HomeControl](#HomeControl)</code>  
 
 | Param | Type |
 | --- | --- |
-| roomIndex | <code>int</code> | 
 | lightIndex | <code>int</code> | 
 | colour | <code>Object</code> | 
 
 <a name="HomeControl+lightSetColourTemp"></a>
-### homeControl.lightSetColourTemp(roomIndex, lightIndex, colourTemp)
+### homeControl.lightSetColourTemp(lightIndex, colourTemp)
 Set the colour temperature of a light
 
 **Kind**: instance method of <code>[HomeControl](#HomeControl)</code>  
 
 | Param | Type |
 | --- | --- |
-| roomIndex | <code>int</code> | 
 | lightIndex | <code>int</code> | 
 | colourTemp | <code>int</code> | 
 
 <a name="HomeControl+lightSetBrightness"></a>
-### homeControl.lightSetBrightness(roomIndex, lightIndex, brightness)
+### homeControl.lightSetBrightness(lightIndex, brightness)
 Set the brightness of a light
 
 **Kind**: instance method of <code>[HomeControl](#HomeControl)</code>  
 
 | Param | Type |
 | --- | --- |
-| roomIndex | <code>int</code> | 
 | lightIndex | <code>int</code> | 
 | brightness | <code>int</code> | 
 
@@ -636,15 +642,24 @@ Set light brightness by hueID
 | hueID | <code>int</code> | 
 | brightness | <code>int</code> | 
 
-<a name="HomeControl+emit"></a>
-### homeControl.emit(roomIndex, lightIndex, command, value)
-Emit a socket event and log the action
+<a name="HomeControl+emitHouseName"></a>
+### homeControl.emitHouseName(houseName)
+Emit a houseName socket event and log the name;
+
+**Kind**: instance method of <code>[HomeControl](#HomeControl)</code>  
+
+| Param |
+| --- |
+| houseName | 
+
+<a name="HomeControl+emitLight"></a>
+### homeControl.emitLight(lightIndex, command, value)
+Emit a light socket event and log the action
 
 **Kind**: instance method of <code>[HomeControl](#HomeControl)</code>  
 
 | Param | Type |
 | --- | --- |
-| roomIndex | <code>int</code> | 
 | lightIndex | <code>int</code> | 
 | command | <code>string</code> | 
 | value | <code>Object</code> | 

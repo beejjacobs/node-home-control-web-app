@@ -4,6 +4,7 @@ var HomeConfig = require('./home-config');
 var hueAPI = require('node-hue-api').HueApi;
 
 /**
+ * Act on received events and control lights
  * @extends HomeConfig
  */
 class HomeControl extends HomeConfig {
@@ -56,7 +57,6 @@ class HomeControl extends HomeConfig {
    */
   clientConnected() {
     console.info('Connected');
-    this.emitHouseName(this.getHouseName());
   }
 
   /**
@@ -65,7 +65,7 @@ class HomeControl extends HomeConfig {
    * @param {string} data.floorID
    */
   processFloorEvent(data) {
-
+    this.floorSetPower(data.floorID, true);
   }
 
   /**
@@ -129,7 +129,6 @@ class HomeControl extends HomeConfig {
 
   /**
    * Toggle the power state for a given light
-   * @param {int} roomIndex
    * @param {int} lightIndex
    */
   lightTogglePower(lightIndex) {
@@ -179,6 +178,13 @@ class HomeControl extends HomeConfig {
    */
   setPower(hueID, state) {
     //todo: set light power state
+    this.hue.setLightState(hueID, state, function(err, result) {
+      if (err) {
+        console.error(err);
+        throw err;
+      }
+      console.log(result);
+    });
     console.error({error: 'setPower not implemented', hueID, state});
   }
 
@@ -200,15 +206,6 @@ class HomeControl extends HomeConfig {
   setBrightness(hueID, brightness) {
     //todo: set light brightness
     console.error({error: 'setBrightness not implemented', hueID, brightness});
-  }
-
-  /**
-   * Emit a houseName socket event and log the name;
-   * @param houseName
-   */
-  emitHouseName(houseName) {
-    console.info({houseName});
-    this.io.sockets.emit('houseName', {value: houseName});
   }
 
   /**
