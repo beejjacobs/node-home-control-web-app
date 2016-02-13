@@ -18,7 +18,7 @@ app.set('view engine', 'jade');
 app.use(express.static(__dirname + '/public'));
 
 app.get('/', function (req, res) {
-    res.render('index');
+    res.render('index', {config: config});
 });
 
 http.listen(3000, function(){

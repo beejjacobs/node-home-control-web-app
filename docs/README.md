@@ -452,7 +452,6 @@ Act on received events and control lights
     * [.setPower(hueID, state)](#HomeControl+setPower)
     * [.setColour(hueID, colour)](#HomeControl+setColour)
     * [.setBrightness(hueID, brightness)](#HomeControl+setBrightness)
-    * [.emitHouseName(houseName)](#HomeControl+emitHouseName)
     * [.emitLight(lightIndex, command, value)](#HomeControl+emitLight)
     * [.getHouseName()](#HomeConfig+getHouseName) ⇒ <code>string</code>
     * [.getHueIP()](#HomeConfig+getHueIP) ⇒ <code>string</code>
@@ -512,6 +511,7 @@ Socket.io instance
 node-hue-api
 
 **Kind**: instance property of <code>[HomeControl](#HomeControl)</code>  
+**See**: [https://github.com/peter-murray/node-hue-api](https://github.com/peter-murray/node-hue-api)  
 <a name="HomeControl+clientConnected"></a>
 ### homeControl.clientConnected()
 Client has connected, send the relevant data to initialise the client
@@ -641,16 +641,6 @@ Set light brightness by hueID
 | --- | --- |
 | hueID | <code>int</code> | 
 | brightness | <code>int</code> | 
-
-<a name="HomeControl+emitHouseName"></a>
-### homeControl.emitHouseName(houseName)
-Emit a houseName socket event and log the name;
-
-**Kind**: instance method of <code>[HomeControl](#HomeControl)</code>  
-
-| Param |
-| --- |
-| houseName | 
 
 <a name="HomeControl+emitLight"></a>
 ### homeControl.emitLight(lightIndex, command, value)

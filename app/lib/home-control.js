@@ -22,6 +22,7 @@ class HomeControl extends HomeConfig {
     this.io = io;
     /**
      * node-hue-api
+     * @see {@link https://github.com/peter-murray/node-hue-api}
      * @type {Object}
      */
     this.hue = new hueAPI(

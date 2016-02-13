@@ -1,12 +1,45 @@
+include mixins
+
 doctype html
 html
     head
-        title='Home Control Web App'
+        title #{config.houseName} Control
+        link(rel='stylesheet', href='/css/material.min.css')
         link(rel='stylesheet', href='/css/style.css')
     body
-        #header
-            h1='Home Control'
-        object(id='floor-plan', data='/img/floor-plan.svg', type='image/svg+xml')
+        .app-layout.mdl-layout.mdl-js-layout.mdl-layout--fixed-drawer.mdl-layout--fixed-header
+            header.app-header.mdl-layout__header.mdl-color--grey-100.mdl-color-text--grey-600
+                .mdl-layout__header-row
+                    span.mdl-layout-title #{config.houseName} Control
+                    .mdl-layout-spacer
+                    button.mdl-button.mdl-js-button.mdl-js-ripple-effect.mdl-button--icon#hdrbtn
+                        i.material-icons more_vert
+                    ul.mdl-menu.mdl-js-menu.mdl-js-ripple-effect.mdl-menu--bottom-right(for="hdrbtn")
+                        li.mdl-menu__item About
+            .app-drawer.mdl-layout__drawer.mdl-color--blue-grey-900.mdl-color-text--blue-grey-50
+                header.app-drawer-header Menu
+                nav.app-navigation.mdl-navigation.mdl-color--blue-grey-800
+                    +navLink('home','Home')
+                    +navLink('info','Stats')
+            main.mdl-layout__content.mdl-color--grey-100
+                .mdl-grid.app-content
+                    .demo-charts.mdl-color--white.mdl-shadow--2dp.mdl-cell.mdl-cell--12-col.mdl-grid
+                        object(id='floor-plan', data='/img/floor-plan.svg', type='image/svg+xml')
+
+        //h2 Floors
+        //each floor in config.floors
+        //    div(id='floor-' + floor.id) #{floor.name}
+        //h2 Rooms
+        //each room in config.rooms
+        //    div(id='room-' + room.id) #{room.name}
+        //h2 Lights
+        //each room in config.rooms
+        //    h3 #{room.name}
+        //    each light in config.lights
+        //        if light.roomID == room.id
+        //            div(id='light-' + light.id) #{light.name}
+        //object(id='floor-plan', data='/img/floor-plan.svg', type='image/svg+xml')
     script(src='/socket.io/socket.io.js')
+    script(src='/js/material.min.js')
     script(src='/js/events.js')
     script(src='/js/events-received.js')
