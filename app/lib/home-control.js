@@ -30,8 +30,9 @@ class HomeControl extends HomeConfig {
 
     var self = this;
     this.io.on('connection', function(socket){
-      console.info('Connected');
-      self.emitHouseName(self.getHouseName());
+
+      self.clientConnected();
+
       socket.on('message', function(data){
         console.log(data);
       });
@@ -48,6 +49,14 @@ class HomeControl extends HomeConfig {
         self.processLightEvent(data);
       });
     });
+  }
+
+  /**
+   * Client has connected, send the relevant data to initialise the client
+   */
+  clientConnected() {
+    console.info('Connected');
+    this.emitHouseName(this.getHouseName());
   }
 
   /**
