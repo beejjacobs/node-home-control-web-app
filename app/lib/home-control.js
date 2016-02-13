@@ -31,6 +31,7 @@ class HomeControl extends HomeConfig {
     var self = this;
     this.io.on('connection', function(socket){
       console.info('Connected');
+      self.emitHouseName(self.getHouseName());
       socket.on('message', function(data){
         console.log(data);
       });
@@ -126,7 +127,7 @@ class HomeControl extends HomeConfig {
     var hueID = this.getLightHueID(lightIndex);
     //todo: get light state
     this.setPower(hueID, true);
-    this.emit(lightIndex, 'power', true);
+    this.emitLight(lightIndex, 'power', true);
   }
 
   /**
@@ -137,7 +138,7 @@ class HomeControl extends HomeConfig {
   lightSetColour(lightIndex, colour) {
     var hueID = this.getLightHueID(lightIndex);
     this.setColour(hueID, colour);
-    this.emit(lightIndex, 'colour', colour);
+    this.emitLight(lightIndex, 'colour', colour);
   }
 
   /**
@@ -148,7 +149,7 @@ class HomeControl extends HomeConfig {
   lightSetColourTemp(lightIndex, colourTemp) {
     var hueID = this.getLightHueID(lightIndex);
     this.setColour(hueID, colourTemp);
-    this.emit(lightIndex, 'colourTemp', colourTemp);
+    this.emitLight(lightIndex, 'colourTemp', colourTemp);
   }
 
   /**
@@ -159,7 +160,7 @@ class HomeControl extends HomeConfig {
   lightSetBrightness(lightIndex, brightness) {
     var hueID = this.getLightHueID(lightIndex);
     this.setBrightness(hueID, brightness);
-    this.emit(lightIndex, 'brightness', brightness);
+    this.emitLight(lightIndex, 'brightness', brightness);
   }
 
   /**
@@ -193,12 +194,21 @@ class HomeControl extends HomeConfig {
   }
 
   /**
-   * Emit a socket event and log the action
+   * Emit a houseName socket event and log the name;
+   * @param houseName
+   */
+  emitHouseName(houseName) {
+    console.info({houseName});
+    this.io.sockets.emit('houseName', {value: houseName});
+  }
+
+  /**
+   * Emit a light socket event and log the action
    * @param {int} lightIndex
    * @param {string} command
    * @param {Object} value
    */
-  emit(lightIndex, command, value) {
+  emitLight(lightIndex, command, value) {
     var roomID = this.getLightRoomID(lightIndex);
     var roomIndex = this.getRoomByID(roomID);
     var lightID = this.getLightID(lightIndex);
