@@ -1,42 +1,23 @@
 @font-face {
-    font-family: 'Material Icons';
+    font-family: 'Roboto';
     font-style: normal;
     font-weight: 400;
-    src: url('../font/MaterialIcons-Regular.eot'); /* For IE6-8 */
-    src: local('Material Icons'),
-    local('MaterialIcons-Regular'),
-    url('../font/MaterialIcons-Regular.woff2') format('woff2'),
-    url('../font/MaterialIcons-Regular.woff') format('woff'),
-    url('../font/MaterialIcons-Regular.ttf') format('truetype');
+    src: local('Roboto'),
+    url('../font/Roboto-Regular.ttf') format('truetype');
 }
+
+/*@font-face {*/
+    /*font-family: 'Material Icons';*/
+    /*font-style: normal;*/
+    /*font-weight: 400;*/
+    /*src: local('Material Icons'),*/
+    /*url('../font/MaterialIcons-Regular.woff2') format('woff2'),*/
+    /*url('../font/MaterialIcons-Regular.woff') format('woff'),*/
+    /*url('../font/MaterialIcons-Regular.ttf') format('truetype');*/
+/*}*/
 
 html, body {
     font-family: 'Roboto', 'Helvetica', sans-serif;
-}
-
-.material-icons {
-    font-family: 'Material Icons', 'serif';
-    font-weight: normal;
-    font-style: normal;
-    font-size: 24px;  /* Preferred icon size */
-    display: inline-block;
-    line-height: 1;
-    text-transform: none;
-    letter-spacing: normal;
-    word-wrap: normal;
-    white-space: nowrap;
-    direction: ltr;
-
-    /* Support for all WebKit browsers. */
-    -webkit-font-smoothing: antialiased;
-    /* Support for Safari and Chrome. */
-    text-rendering: optimizeLegibility;
-
-    /* Support for Firefox. */
-    -moz-osx-font-smoothing: grayscale;
-
-    /* Support for IE. */
-    font-feature-settings: 'liga';
 }
 
 #floor-plan {
@@ -45,7 +26,7 @@ html, body {
 }
 
 .app-layout .app-header .mdl-textfield {
-    padding: 0px;
+    padding: 0;
     margin-top: 41px;
 }
 .app-layout .app-header .mdl-textfield .mdl-textfield__expandable-holder {
@@ -117,8 +98,4 @@ html, body {
     font-size: 24px;
     color: rgba(255, 255, 255, 0.56);
     margin-right: 32px;
-}
-
-.app-content {
-    max-width: 1080px;
 }

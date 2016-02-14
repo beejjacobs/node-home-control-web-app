@@ -1,0 +1,30 @@
+include mixins
+
+doctype html
+html
+  head
+    title #{config.houseName} Control
+    link(rel='stylesheet', href='/css/material.min.css')
+    link(rel='stylesheet', href='/css/style.css')
+    link(href="https://fonts.googleapis.com/icon?family=Material+Icons", rel="stylesheet")
+  body
+    .app-layout.mdl-layout.mdl-js-layout.mdl-layout--fixed-drawer.mdl-layout--fixed-header
+      header.app-header.mdl-layout__header.mdl-color--grey-100.mdl-color-text--grey-600.mdl-layout--small-screen-only
+        .mdl-layout__header-row
+          span.mdl-layout-title #{config.houseName} Control
+      .app-drawer.mdl-layout__drawer.mdl-color--blue-grey-900.mdl-color-text--blue-grey-50
+        header.app-drawer-header #{config.houseName} Control
+        nav.app-navigation.mdl-navigation.mdl-color--blue-grey-800
+          +navLink('home','Home', '/')
+          +navLink('format_list_numbered', 'Floors', 'floors')
+          +navLink('view_quilt', 'Rooms', 'rooms')
+          +navLink('lightbulb_outline', 'Lights', 'lights')
+          +navLink('show_chart','Stats')
+      main.mdl-layout__content.mdl-color--grey-100
+        .mdl-grid.app-content
+          block content
+  script(src='/socket.io/socket.io.js')
+  script(src='/js/material.min.js')
+  script(src='/js/events.js')
+  script(src='/js/events-received.js')
+
