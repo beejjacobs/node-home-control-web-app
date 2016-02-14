@@ -3,7 +3,7 @@ extends layout
 block content
   each floor in config.floors
     .mdl-cell.mdl-cell--4-col.mdl-shadow--2dp.mdl-card
-      .mdl-card__title(id='floor-' + floor.id) #{floor.name}
+      .mdl-card__title.mdl-card--border(id='floor-' + floor.id) #{floor.name}
       ul.mdl-list
         li.mdl-list__item
           span.mdl-list__item-primary-content
