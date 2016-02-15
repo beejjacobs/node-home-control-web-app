@@ -31,14 +31,14 @@ function onFloorPlanLoad(svgObject) {
 }
 
 function roomClick(room) {
-  var roomName = room.id.slice(5);
-  console.log('room: ' + roomName);
+  var roomID = room.id.slice(5);
+  console.log('room: ' + roomID);
   room.style.fill = 'yellow';
+  socket.emit('room', {roomID});
 }
 
 function roomDoubleClick(room) {
   var roomID = room.id.slice(5);
-  console.log('room: ' + roomID);
+  window.location.href = '/room/' + roomID;
   room.style.fill = 'blue';
-  socket.emit('room', {roomID});
 }

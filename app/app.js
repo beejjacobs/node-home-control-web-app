@@ -33,6 +33,10 @@ app.get('/stats', function (req, res) {
   res.render('stats', {config: config});
 });
 
+app.get('/room/*', function (req, res) {
+  var roomID = req.url.slice(6);
+  res.render('room', {config: config, roomID: roomID});
+});
 app.get('/light/*', function (req, res) {
   var lightID = req.url.slice(7);
   res.render('light', {config: config, lightID: lightID});

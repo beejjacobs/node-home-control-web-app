@@ -3,7 +3,11 @@ extends layout
 block content
   each room in config.rooms
     .mdl-cell.mdl-cell--4-col.mdl-shadow--2dp.mdl-card
-      .mdl-card__title.mdl-card--border(id='room-' + room.id) #{room.name}
+      a(href='/room/' + room.id)
+        .mdl-card__title.mdl-card--border(id='room-' + room.id) #{room.name}
+          .mdl-layout-spacer
+          .mdl-button.mdl-js-button.mdl-button--fab.mdl-button--mini-fab.mdl-js-ripple-effect.mdl-button--colored
+            i.material-icons arrow_forward
       ul.mdl-list
         li.mdl-list__item
           span.mdl-list__item-primary-content
