@@ -5,7 +5,8 @@ block content
     each light in config.lights
       if light.roomID == room.id
         .mdl-cell.mdl-cell--4-col.mdl-shadow--2dp.mdl-card
-          .mdl-card__title.mdl-card--border(id='light-' + light.id) #{room.name} #{light.name}
+          a(href='/light/' + light.id)
+            .mdl-card__title.mdl-card--border(id='light-' + light.id) #{room.name} #{light.name}
           ul.mdl-list
             li.mdl-list__item
               span.mdl-list__item-primary-content

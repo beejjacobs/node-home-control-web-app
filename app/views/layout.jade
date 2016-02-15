@@ -17,10 +17,10 @@ html
         header.app-drawer-header #{config.houseName} Control
         nav.app-navigation.mdl-navigation.mdl-color--blue-grey-800
           +navLink('home','Home', '/')
-          +navLink('format_list_numbered', 'Floors', 'floors')
-          +navLink('view_quilt', 'Rooms', 'rooms')
-          +navLink('lightbulb_outline', 'Lights', 'lights')
-          +navLink('show_chart','Stats')
+          +navLink('format_list_numbered', 'Floors', '/floors')
+          +navLink('view_quilt', 'Rooms', '/rooms')
+          +navLink('lightbulb_outline', 'Lights', '/lights')
+          +navLink('show_chart','Stats', 'Stats')
       main.mdl-layout__content.mdl-color--grey-100
         .mdl-grid.app-content
           block content

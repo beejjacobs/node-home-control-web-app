@@ -18,20 +18,25 @@ app.set('view engine', 'jade');
 app.use(express.static(__dirname + '/public'));
 
 app.get('/', function (req, res) {
-    res.render('index', {config: config});
+  res.render('index', {config: config});
 });
 app.get('/floors', function (req, res) {
-    res.render('floors', {config: config});
+  res.render('floors', {config: config});
 });
 app.get('/rooms', function (req, res) {
-    res.render('rooms', {config: config});
+  res.render('rooms', {config: config});
 });
 app.get('/lights', function (req, res) {
-    res.render('lights', {config: config});
+  res.render('lights', {config: config});
+});
+
+app.get('/light/*', function (req, res) {
+  var lightID = req.url.slice(7);
+  res.render('index', {config: config, lightID: lightID});
 });
 
 http.listen(3000, function(){
-    console.log('Server listening on port 3000');
+  console.log('Server listening on port 3000');
 });
 
 new HomeControl(io, config);
