@@ -28,7 +28,7 @@
     {"id": "dining-main", "name": "Main Light", "roomID": "dining", "hueID": 5, "type": "main", "colour": "white"},
     {"id": "hallway-main", "name": "Main Light", "roomID": "hallway", "hueID": 6, "type": "main", "colour": "white"},
     {"id": "kitchen-main", "name": "Main Light", "roomID": "kitchen", "hueID": 7, "type": "main", "colour": "white"},
-    {"id": "kitchen-main", "name": "Worktop Light", "roomID": "kitchen", "hueID": 8, "type": "strip", "colour": "rgb"},
+    {"id": "kitchen-main-worktop", "name": "Worktop Light", "roomID": "kitchen", "hueID": 8, "type": "strip", "colour": "rgb"},
     {"id": "utility-main", "name": "Main Light", "roomID": "utility", "hueID": 9, "type": "main", "colour": "white"},
     {"id": "office-main", "name": "Main Light", "roomID": "office", "hueID": 10, "type": "main", "colour": "white"},
     {"id": "bedroom-master-main", "name": "Main Light", "roomID": "bedroom-master", "hueID": 11, "type": "main", "colour": "white"},

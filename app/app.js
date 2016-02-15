@@ -29,10 +29,13 @@ app.get('/rooms', function (req, res) {
 app.get('/lights', function (req, res) {
   res.render('lights', {config: config});
 });
+app.get('/stats', function (req, res) {
+  res.render('stats', {config: config});
+});
 
 app.get('/light/*', function (req, res) {
   var lightID = req.url.slice(7);
-  res.render('index', {config: config, lightID: lightID});
+  res.render('light', {config: config, lightID: lightID});
 });
 
 http.listen(3000, function(){
