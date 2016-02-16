@@ -20,21 +20,21 @@
     {"id": "landing", "name": "Landing", "floorID": "1"}
   ],
   "lights": [
-    {"id": "lounge-main", "name": "Main Light", "roomID": "lounge", "hueID": 0, "type": "main", "colour": "rgb"},
-    {"id": "lounge-corner", "name": "Corner Light", "roomID": "lounge", "hueID": 1, "type": "lamp", "colour": "rgb"},
-    {"id": "lounge-uplight-1", "name": "Up Light 1", "roomID": "lounge", "hueID": 2, "type": "uplight", "colour": "rgb"},
-    {"id": "lounge-uplight-2", "name": "Up Light 2", "roomID": "lounge", "hueID": 3, "type": "uplight", "colour": "rgb"},
-    {"id": "lounge-uplight-3", "name": "Up Light 3", "roomID": "lounge", "hueID": 4, "type": "uplight", "colour": "rgb"},
-    {"id": "dining-main", "name": "Main Light", "roomID": "dining", "hueID": 5, "type": "main", "colour": "white"},
-    {"id": "hallway-main", "name": "Main Light", "roomID": "hallway", "hueID": 6, "type": "main", "colour": "white"},
-    {"id": "kitchen-main", "name": "Main Light", "roomID": "kitchen", "hueID": 7, "type": "main", "colour": "white"},
-    {"id": "kitchen-main-worktop", "name": "Worktop Light", "roomID": "kitchen", "hueID": 8, "type": "strip", "colour": "rgb"},
-    {"id": "utility-main", "name": "Main Light", "roomID": "utility", "hueID": 9, "type": "main", "colour": "white"},
-    {"id": "office-main", "name": "Main Light", "roomID": "office", "hueID": 10, "type": "main", "colour": "white"},
-    {"id": "bedroom-master-main", "name": "Main Light", "roomID": "bedroom-master", "hueID": 11, "type": "main", "colour": "white"},
-    {"id": "bedroom-2-main", "name": "Main Light", "roomID": "bedroom-2", "hueID": 12, "type": "main", "colour": "white"},
-    {"id": "bedroom-3-main", "name": "Main Light", "roomID": "bedroom-3", "hueID": 13, "type": "main", "colour": "white"},
-    {"id": "bathroom-main", "name": "Main Light", "roomID": "bathroom", "hueID": 14, "type": "main", "colour": "white"},
-    {"id": "landing-main", "name": "Main Light", "roomID": "landing", "hueID": 15, "type": "main", "colour": "white"}
+    {"id": "lounge_main", "name": "Main Light", "roomID": "lounge", "hueID": 0, "type": "main", "colour": "rgb"},
+    {"id": "lounge_corner", "name": "Corner Light", "roomID": "lounge", "hueID": 1, "type": "lamp", "colour": "rgb"},
+    {"id": "lounge_uplight-1", "name": "Up Light 1", "roomID": "lounge", "hueID": 2, "type": "uplight", "colour": "rgb"},
+    {"id": "lounge_uplight-2", "name": "Up Light 2", "roomID": "lounge", "hueID": 3, "type": "uplight", "colour": "rgb"},
+    {"id": "lounge_uplight-3", "name": "Up Light 3", "roomID": "lounge", "hueID": 4, "type": "uplight", "colour": "rgb"},
+    {"id": "dining_main", "name": "Main Light", "roomID": "dining", "hueID": 5, "type": "main", "colour": "white"},
+    {"id": "hallway_main", "name": "Main Light", "roomID": "hallway", "hueID": 6, "type": "main", "colour": "white"},
+    {"id": "kitchen_main", "name": "Main Light", "roomID": "kitchen", "hueID": 7, "type": "main", "colour": "white"},
+    {"id": "kitchen_main-worktop", "name": "Worktop Light", "roomID": "kitchen", "hueID": 8, "type": "strip", "colour": "rgb"},
+    {"id": "utility_main", "name": "Main Light", "roomID": "utility", "hueID": 9, "type": "main", "colour": "white"},
+    {"id": "office_main", "name": "Main Light", "roomID": "office", "hueID": 10, "type": "main", "colour": "white"},
+    {"id": "bedroom-master_main", "name": "Main Light", "roomID": "bedroom-master", "hueID": 11, "type": "main", "colour": "white"},
+    {"id": "bedroom-2_main", "name": "Main Light", "roomID": "bedroom-2", "hueID": 12, "type": "main", "colour": "white"},
+    {"id": "bedroom-3_main", "name": "Main Light", "roomID": "bedroom-3", "hueID": 13, "type": "main", "colour": "white"},
+    {"id": "bathroom_main", "name": "Main Light", "roomID": "bathroom", "hueID": 14, "type": "main", "colour": "white"},
+    {"id": "landing_main", "name": "Main Light", "roomID": "landing", "hueID": 15, "type": "main", "colour": "white"}
   ]
 }

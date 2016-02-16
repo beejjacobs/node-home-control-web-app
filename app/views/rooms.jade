@@ -2,4 +2,4 @@ extends layout
 
 block content
   each room in config.rooms
-    +controlCard(room.name, 'room-' + room.id, '/room/' + room.id)
+    +controlCard(room.name, 'room_' + room.id, '/room/' + room.id)

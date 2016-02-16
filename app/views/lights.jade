@@ -4,4 +4,4 @@ block content
   each room in config.rooms
     each light in config.lights
       if light.roomID == room.id
-        +controlCard(room.name + ' ' + light.name, 'light-' + light.id, '/light/' + light.id)
+        +controlCard(room.name + ' ' + light.name, 'light_' + light.id, '/light/' + light.id)
