@@ -35,6 +35,9 @@ app.get('/schedule', function (req, res) {
 app.get('/record', function (req, res) {
   res.render('record', {config: config});
 });
+app.get('/modes', function (req, res) {
+  res.render('modes', {config: config});
+});
 app.get('/devices', function (req, res) {
   res.render('devices', {config: config});
 });
