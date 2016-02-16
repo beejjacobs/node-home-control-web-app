@@ -2,3 +2,20 @@ mixin navLink(icon, label, href)
   a.mdl-navigation__link(href=href)
     i.mdl-color-text--blue-grey-400.material-icons(role="presentation")=icon
     =label
+
+mixin controlCard(title, elementID, link)
+  .mdl-cell.mdl-cell--4-col.mdl-shadow--2dp.mdl-card
+    .mdl-card__title.mdl-card--border(id=elementID)=title
+      if link
+        .mdl-layout-spacer
+        a(href=link)
+          .mdl-button.mdl-js-button.mdl-button--fab.mdl-button--mini-fab.mdl-js-ripple-effect.mdl-button--colored
+            i.material-icons arrow_forward
+    ul.mdl-list
+      li.mdl-list__item
+        i.material-icons lightbulb_outline
+        label.mdl-switch.mdl-js-switch.mdl-js-ripple-effect(for="switch-" + elementID)
+          input.mdl-switch__input(type="checkbox", id="switch-" + elementID)
+      li.mdl-list__item
+        i.material-icons brightness_medium
+        input.mdl-slider.mdl-js-slider(type="range", min="0", max="100", value="0", tabindex="0", id="slider-" + elementID)

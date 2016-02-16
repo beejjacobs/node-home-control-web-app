@@ -29,6 +29,15 @@ app.get('/rooms', function (req, res) {
 app.get('/lights', function (req, res) {
   res.render('lights', {config: config});
 });
+app.get('/schedule', function (req, res) {
+  res.render('schedule', {config: config});
+});
+app.get('/record', function (req, res) {
+  res.render('record', {config: config});
+});
+app.get('/devices', function (req, res) {
+  res.render('devices', {config: config});
+});
 app.get('/stats', function (req, res) {
   res.render('stats', {config: config});
 });

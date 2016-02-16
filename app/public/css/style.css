@@ -104,7 +104,9 @@ a {
     margin-right: 32px;
 }
 
-.app-content .mdl-list__item-primary-content .material-icons,
-.app-content .mdl-list__item-secondary-action .mdl-switch {
-    margin-right: 32px;
+.app-content .mdl-list__item .mdl-switch {
+    margin-left: 20px;
+}
+.app-content .mdl-list__item .mdl-slider__container {
+    flex-grow: 1;
 }
