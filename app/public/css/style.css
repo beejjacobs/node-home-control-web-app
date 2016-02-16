@@ -106,6 +106,7 @@ a {
 
 .app-content .mdl-list__item .mdl-switch {
     margin-left: 20px;
+    width: 25%;
 }
 .app-content .mdl-list__item .mdl-slider__container {
     flex-grow: 1;
