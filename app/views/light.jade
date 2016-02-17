@@ -5,4 +5,4 @@ block content
     each light in config.lights
       if light.id == lightID
         if light.roomID == room.id
-          +controlCard(room.name + ' ' + light.name, 'light_' + light.id, '/light/' + light.id)
+          +lightControlCard(room.name + ' ' + light.name, light.colour, 'light_' + light.id, '/light/' + light.id)
