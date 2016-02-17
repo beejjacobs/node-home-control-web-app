@@ -11,9 +11,11 @@ var socket = io();
 
 function onDOMLoad() {
   var svgObject = document.getElementById('floor-plan');
-  svgObject.addEventListener('load', function() {
-    onFloorPlanLoad(svgObject);
-  });
+  if(svgObject != null) {
+    svgObject.addEventListener('load', function() {
+      onFloorPlanLoad(svgObject);
+    });
+  }
 }
 document.addEventListener('DOMContentLoaded', onDOMLoad);
 
