@@ -39,3 +39,7 @@ mixin lightControlCard(title, colour, elementID, link)
           i.material-icons palette
           .app-hue-slider
             input.mdl-slider.mdl-js-slider(type="range", min="0", max="100", value="0", tabindex="0", id="slider-hue_" + elementID)
+        li.mdl-list__item
+          i.material-icons panorama_fish_eye
+          .app-white-slider
+            input.mdl-slider.mdl-js-slider(type="range", min="0", max="100", value="0", tabindex="0", id="slider-sat_" + elementID)

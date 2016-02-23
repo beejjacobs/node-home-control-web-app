@@ -112,15 +112,27 @@ a {
     flex-grow: 1;
 }
 
-.app-hue-slider {
+.app-hue-slider,
+.app-white-slider{
     width: 100%;
+}
+.app-hue-slider .mdl-slider__background-flex,
+.app-white-slider .mdl-slider__background-flex {
+    height: 4px;
 }
 .app-hue-slider .mdl-slider__background-flex {
     background: linear-gradient(to right, hsl(0,100%,50%),hsl(60,100%, 50%), hsl(120,100%, 50%), hsl(180, 100%, 50%), hsl(240,100%,50%),hsl(300,100%,50%) 100%);
-    height:4px;
+    margin-top: -1px;
+}
+.app-white-slider .mdl-slider__background-flex {
+    background: linear-gradient(to right, hsl(45,100%,50%),hsl(60,100%, 50%), hsl(90,100%, 100%)100%);
+    border: solid 1px #C3C3C3;
+    margin-top: -2px;
 }
 
 .app-hue-slider .mdl-slider__background-lower,
-.app-hue-slider .mdl-slider__background-upper {
+.app-hue-slider .mdl-slider__background-upper,
+.app-white-slider .mdl-slider__background-lower,
+.app-white-slider .mdl-slider__background-upper{
     background: none;
 }
